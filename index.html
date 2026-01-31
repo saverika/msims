@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MISNS | Veterans Hope Project</title>
+  <title>MISNS | Advocacy & Ambassador Program</title>
   <style>
     :root{
       --bg:#f8f5f0;
@@ -21,7 +21,6 @@
       --shadow2: 0 14px 34px rgba(0,0,0,.12);
       --radius: 18px;
     }
-
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
@@ -31,11 +30,7 @@
       background:var(--bg);
     }
     a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
-    .container{
-      width:min(1120px, 92vw);
-      margin:0 auto;
-    }
+    .container{ width:min(1120px, 92vw); margin:0 auto; }
 
     /* Header */
     header{
@@ -52,31 +47,17 @@
       padding:10px 0;
     }
     .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
     .brand{
-      font-size:24px;
-      font-weight:800;
-      letter-spacing:.5px;
-      transition: color .25s ease;
-      color:#fff;
+      font-size:24px; font-weight:900; letter-spacing:.4px;
+      color:#fff; transition: color .25s ease;
     }
     header.scrolled .brand{ color:var(--cream); }
 
-    nav ul{
-      display:flex;
-      gap:28px;
-      list-style:none;
-      margin:0;
-      padding:0;
-    }
+    nav ul{ display:flex; gap:22px; list-style:none; margin:0; padding:0; }
     nav a{
-      font-weight:600;
-      color:#fff;
-      opacity:.95;
+      font-weight:650; color:#fff; opacity:.95;
       transition: color .2s ease, opacity .2s ease;
     }
     header.scrolled nav a{ color:var(--cream); }
@@ -84,15 +65,9 @@
 
     .menu-btn{
       display:none;
-      border:0;
-      background:var(--green);
-      color:#fff;
-      padding:10px 12px;
-      border-radius:10px;
-      font-size:18px;
-      cursor:pointer;
+      border:0; background:var(--green); color:#fff;
+      padding:10px 12px; border-radius:10px; font-size:18px; cursor:pointer;
     }
-
     .mobile-menu{
       display:none;
       background:var(--bg);
@@ -103,18 +78,12 @@
     }
     .mobile-menu.open{ display:block; }
     .mobile-menu ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+      list-style:none; margin:0; padding:0;
+      display:flex; flex-direction:column; gap:10px;
     }
     .mobile-menu a{
-      display:block;
-      padding:10px 0;
-      font-weight:650;
-      color:var(--green);
+      display:block; padding:10px 0;
+      font-weight:650; color:var(--green);
       border-bottom:1px solid var(--cream);
       transition: color .2s ease;
     }
@@ -123,49 +92,43 @@
     /* Hero */
     .hero{
       min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      text-align:center;
-      position:relative;
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; text-align:center;
       background:
         linear-gradient(rgba(58, 74, 56, 0.85), rgba(42, 53, 40, 0.9)),
-        url("https://placehold.co/1600x900/3a4a38/e8e1d1?text=Women+Veterans");
-      background-size:cover;
-      background-position:center;
+        url("https://placehold.co/1600x900/3a4a38/e8e1d1?text=Women+Veterans+Advocacy");
+      background-size:cover; background-position:center;
       padding:90px 0 70px;
     }
     .hero h1{
       font-size: clamp(34px, 4.2vw, 64px);
-      margin:0 0 18px;
-      line-height:1.05;
-      font-weight:900;
+      margin:0 0 16px; line-height:1.05; font-weight:950;
     }
-    .hero p{
-      font-size: clamp(16px, 2.0vw, 24px);
-      line-height:1.5;
-      margin:0 auto 34px;
-      max-width: 900px;
+    .hero .sub{
+      font-size: clamp(16px, 2.1vw, 24px);
+      margin:0 auto 12px;
+      max-width: 980px;
       opacity:.95;
+      font-weight:300;
+      line-height:1.5;
+    }
+    .hero .desc{
+      font-size: clamp(15px, 1.8vw, 20px);
+      margin:0 auto 30px;
+      max-width: 980px;
+      opacity:.95;
+      line-height:1.6;
     }
     .cta-row{
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      flex-wrap:wrap;
+      display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
     }
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      display:inline-flex; align-items:center; justify-content:center;
       padding:14px 26px;
       border-radius:999px;
-      font-weight:800;
-      letter-spacing:.2px;
-      border:0;
-      cursor:pointer;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      font-weight:900;
+      border:0; cursor:pointer;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, filter .2s ease;
       box-shadow: 0 12px 22px rgba(0,0,0,.25);
       font-size:16px;
       user-select:none;
@@ -177,6 +140,8 @@
     .btn.light:hover{ background:var(--cream2); }
     .btn.alt{ background:var(--sage3); color:#fff; }
     .btn.alt:hover{ filter: brightness(.95); }
+    .btn.dark{ background:var(--green); color:#fff; }
+    .btn.dark:hover{ background:var(--green2); }
 
     /* Sections */
     section{ padding:64px 0; }
@@ -188,8 +153,7 @@
       margin:0 0 14px;
       color:var(--green);
       font-size: clamp(26px, 3vw, 40px);
-      font-weight:900;
-      letter-spacing:.2px;
+      font-weight:950;
     }
     .section-subtitle{
       text-align:center;
@@ -200,44 +164,10 @@
       line-height:1.6;
     }
 
-    /* About */
-    .about-wrap{
-      max-width: 900px;
-      margin: 0 auto;
-      text-align:center;
-    }
-    .date-row{
-      display:flex;
-      justify-content:center;
-      gap:48px;
-      flex-wrap:wrap;
-      margin:22px 0 10px;
-    }
-    .date-box .big{
-      font-size:22px;
-      font-weight:900;
-      color:var(--sage);
-    }
-    .date-box .small{
-      color:var(--muted);
-      margin-top:4px;
-    }
-    .italic{
-      font-style:italic;
-      color:#374151;
-      margin-top:14px;
-      font-size:18px;
-      line-height:1.6;
-    }
-
-    /* Cards */
-    .grid{
-      display:grid;
-      gap:18px;
-    }
-    .grid.support{ grid-template-columns: repeat(1, 1fr); }
+    /* Cards / grids */
+    .grid{ display:grid; gap:18px; }
     .card{
-      background:var(--bg);
+      background:#fff;
       border:1px solid var(--cream);
       border-radius: var(--radius);
       padding:20px;
@@ -245,178 +175,32 @@
       transition: box-shadow .2s ease, transform .2s ease;
     }
     .card:hover{ box-shadow: var(--shadow2); transform: translateY(-2px); }
-    .icon{
-      font-size:38px;
-      margin-bottom:10px;
-    }
-    .card h3{
-      margin:0 0 6px;
+    .card.soft{ background:var(--bg); }
+    .icon{ font-size:40px; margin-bottom:10px; }
+    .card h3, .card h4{
+      margin:0 0 8px;
       color:var(--green);
-      font-size:20px;
-      font-weight:900;
+      font-weight:950;
     }
     .card p{ margin:0; color:#374151; line-height:1.55; }
 
-    /* Sponsorship levels */
-    .levels{ grid-template-columns: 1fr; gap:18px; }
-    .level-card{
+    .panel{
       background:#fff;
-      border-radius: 22px;
-      padding:26px;
-      box-shadow: var(--shadow);
-      border:1px solid #eee;
-      text-align:center;
-    }
-    .level-card.platinum{
-      background:var(--cream);
-      border:2px solid var(--sage);
-    }
-    .level-title{
-      font-size:22px;
-      font-weight:900;
-      color:var(--green);
-      margin:0 0 6px;
-    }
-    .level-amount{
-      font-size:32px;
-      font-weight:950;
-      color:var(--sage);
-      margin:0 0 14px;
-    }
-    .benefits{
-      text-align:left;
-      margin:0 0 16px;
-      padding:0;
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .benefits li{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      color:#1f2937;
-      line-height:1.45;
-    }
-    .check{ color:var(--sage); font-weight:900; margin-top:2px; }
-    .badge{
-      font-weight:900;
-      color:var(--green);
-      margin:4px 0 12px;
-      letter-spacing:.5px;
-    }
-
-    .goods{
-      background:#fff;
-      border-radius: 22px;
-      padding:26px;
-      box-shadow: var(--shadow);
       border:1px solid var(--cream);
-      max-width: 920px;
-      margin: 0 auto;
-    }
-    .goods-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:16px 22px;
-      color:#374151;
-    }
-    .goods h4{
-      margin:0 0 6px;
-      font-size:18px;
-      color:#111827;
-    }
-    .dot{ color:var(--sage); font-weight:900; margin-right:8px; }
-
-    /* Get involved */
-    .two-col{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:26px;
-      max-width: 1020px;
-      margin: 0 auto;
-    }
-    .mini-title{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:22px;
-      font-weight:950;
-      color:var(--green);
-      margin: 0 0 14px;
-    }
-    .list{
-      list-style:none;
-      padding:0;
-      margin:0 0 18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .list li{
-      display:flex;
-      gap:10px;
-      line-height:1.5;
-    }
-
-    /* Testimonials */
-    .test-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:18px;
-      max-width: 1020px;
-      margin: 0 auto;
-    }
-    .tcard{
-      background:#fff;
-      border-radius:22px;
+      border-radius: 22px;
       padding:24px;
-      border:1px solid var(--cream);
       box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
     }
-    .quote-mark{
-      font-size:54px;
-      color:var(--cream2);
-      line-height:1;
-      margin-bottom:8px;
+
+    .list{
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-direction:column; gap:12px;
     }
-    .tcard p{
-      margin:0 0 14px;
-      color:#374151;
-      font-style:italic;
-      line-height:1.6;
-    }
-    .author{
-      font-weight:900;
-      color:var(--green);
-    }
-    .bubble{
-      position:absolute;
-      top:-14px;
-      right:-14px;
-      width:64px;
-      height:64px;
-      border-radius:999px;
-      background:var(--sage);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:950;
-      font-size:20px;
-    }
+    .list li{ display:flex; gap:10px; line-height:1.55; color:#374151; }
+    .check{ color:var(--sage); font-weight:950; margin-top:2px; }
+    .dot{ color:var(--sage); font-weight:950; margin-top:2px; }
 
     /* Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:24px;
-      max-width: 1020px;
-      margin: 0 auto;
-    }
     label{ display:block; margin:0 0 8px; color:#374151; font-weight:650; }
     input, textarea{
       width:100%;
@@ -432,65 +216,20 @@
       border-color: var(--sage);
       box-shadow: 0 0 0 4px rgba(90,107,85,.20);
     }
-    .form-row{ display:flex; flex-direction:column; gap:16px; }
-    .info-box{
-      background:var(--bg);
-      border:1px solid var(--cream);
-      border-radius: 22px;
-      padding:24px;
-    }
-    .info-box h3{
-      margin:0 0 14px;
-      font-size:22px;
-      font-weight:950;
-      color:var(--green);
-    }
-    .info-item h4{
-      margin:0 0 6px;
-      font-size:18px;
-      color:#111827;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .info-item p{ margin:0; color:#374151; }
-    .info-stack{ display:flex; flex-direction:column; gap:16px; margin-bottom:18px; }
 
-    .social-row{
-      display:flex;
-      gap:14px;
-      margin:10px 0 18px;
-    }
+    .social-row{ display:flex; gap:14px; justify-content:center; margin-top:10px; }
     .social{
-      width:42px;
-      height:42px;
+      width:44px; height:44px;
       border-radius:999px;
       border:1px solid var(--cream2);
       background:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex; align-items:center; justify-content:center;
       font-weight:900;
       cursor:pointer;
       transition: transform .15s ease, background .2s ease;
       color:var(--green);
     }
     .social:hover{ transform: translateY(-1px); background:var(--cream); }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 16px;
-      border-radius:999px;
-      font-weight:900;
-      background:var(--cream);
-      color:var(--green);
-      border:1px solid var(--cream2);
-      cursor:pointer;
-      transition: background .2s ease;
-    }
-    .pill:hover{ background:var(--cream2); }
 
     /* Footer */
     footer{
@@ -506,7 +245,7 @@
     footer h3{
       margin:0 0 10px;
       font-size:18px;
-      font-weight:900;
+      font-weight:950;
       color:#fff;
     }
     footer p, footer a{ color:var(--bg2); opacity:.95; line-height:1.55; }
@@ -537,7 +276,7 @@
     .newsletter button{
       border-radius:12px;
       padding:12px 16px;
-      font-weight:900;
+      font-weight:950;
       border:0;
       cursor:pointer;
       background:var(--sage);
@@ -557,7 +296,7 @@
       line-height:1.6;
     }
 
-    /* Scroll reveal */
+    /* Scroll reveal (simple framer-motion-ish) */
     .reveal{
       opacity:0;
       transform: translateY(18px);
@@ -568,16 +307,35 @@
       transform: translateY(0);
     }
 
-    /* Responsive */
+    /* Layout helpers */
+    .two-col{ display:grid; grid-template-columns: 1fr; gap:24px; max-width:1020px; margin:0 auto; }
+    .four-col{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    .three-col{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    .cta-band{
+      background:var(--green);
+      color:var(--bg2);
+    }
+    .cta-cards{
+      display:grid; grid-template-columns: 1fr; gap:18px;
+      max-width: 980px; margin:0 auto;
+    }
+    .cta-card{
+      border-radius: 22px;
+      padding:24px;
+      box-shadow: 0 14px 28px rgba(0,0,0,.25);
+      text-align:center;
+      color:#fff;
+    }
+    .cta-card.one{ background: var(--sage); }
+    .cta-card.two{ background: var(--sage2); }
+
     @media (min-width: 768px){
-      .menu-btn{ display:none; }
       nav{ display:block; }
-      .grid.support{ grid-template-columns: repeat(2, 1fr); }
-      .levels{ grid-template-columns: repeat(3, 1fr); }
-      .goods-grid{ grid-template-columns: repeat(2, 1fr); }
+      .menu-btn{ display:none; }
+      .three-col{ grid-template-columns: repeat(3, 1fr); }
+      .four-col{ grid-template-columns: repeat(4, 1fr); }
       .two-col{ grid-template-columns: 1fr 1fr; gap:44px; }
-      .test-grid{ grid-template-columns: repeat(3, 1fr); }
-      .contact-grid{ grid-template-columns: 1fr 1fr; gap:44px; }
+      .cta-cards{ grid-template-columns: 1fr 1fr; gap:22px; }
       .footer-grid{ grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap:30px; }
     }
     @media (max-width: 767px){
@@ -591,18 +349,15 @@
   <!-- Header -->
   <header id="siteHeader">
     <div class="container header-inner">
-      <div class="brand" id="brand">MISNS</div>
+      <div class="brand">MISNS</div>
 
-      <!-- Desktop Nav -->
       <nav aria-label="Primary">
         <ul id="desktopNav"></ul>
       </nav>
 
-      <!-- Mobile Menu Button -->
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="container">
         <ul id="mobileNav"></ul>
@@ -611,197 +366,322 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="hero">
+  <section id="hero" class="hero">
     <div class="container">
-      <h1 class="reveal">Restoring Hope &amp; Stability for Women Veterans</h1>
-      <p class="reveal">
-        Supporting over 1,200 women veterans and their families with essential resources, mental health support, and community connection.
+      <h1 class="reveal">MISNS Advocacy &amp; Ambassador Program</h1>
+      <p class="sub reveal">Survivor-centered outreach. System-level change. Real support for servicewomen.</p>
+      <p class="desc reveal">
+        We raise awareness of moral injury among women veterans and strengthen access to mental health support + basic needs resources through education, partnerships, and community engagement.
       </p>
       <div class="cta-row reveal">
-        <a class="btn primary" href="#about">Learn More</a>
-        <a class="btn light" href="#sponsorship">Become a Sponsor</a>
-        <a class="btn alt" href="#get-involved">Get Support</a>
+        <a class="btn primary" href="#ambassador">Become an Ambassador</a>
+        <a class="btn light" href="#partnerships">Partner With MISNS</a>
+        <a class="btn alt" href="#contact">Refer a Servicewoman</a>
       </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- About / Approach / Why it matters / Objectives -->
   <section id="about" class="bg2 reveal">
     <div class="container">
-      <div class="about-wrap">
-        <h2 class="section-title">About the Veterans Hope Project</h2>
-        <p class="section-subtitle" style="margin-bottom:18px;">
-          The Veterans Hope Project, led by the Moral Injury Support Network for Servicewomen (MISNS), is dedicated to supporting women veterans and their families facing challenges such as PTSD, economic hardship, and social isolation. Over the next year, our goal is to serve over 1,200 women and families by providing essential resources like food, clothing, transportation, and mental health support.
+      <h2 class="section-title">About the Program</h2>
+      <div style="max-width:900px; margin:0 auto;">
+        <p style="color:#374151; font-size:18px; line-height:1.65; margin:0 0 16px;">
+          The MISNS Advocacy &amp; Ambassador Program advances the mission of the Moral Injury Support Network for Servicewomen (MISNS) by raising awareness of moral injury and improving how systems respond to women veterans experiencing it.
+        </p>
+        <p style="color:#374151; font-size:18px; line-height:1.65; margin:0;">
+          Our advocacy is educational, relationship-driven, and survivor-centered—not confrontational or political lobbying. We combine lived experience, service outcomes, and real community needs to influence policies, procedures, and access pathways across nonprofit, government, and corporate systems.
         </p>
 
-        <div class="date-row">
-          <div class="date-box">
-            <div class="big">February 1, 2026</div>
-            <div class="small">Start Date</div>
-          </div>
-          <div class="date-box">
-            <div class="big">January 31, 2027</div>
-            <div class="small">End Date</div>
-          </div>
+        <div id="approach" style="margin-top:38px;">
+          <h3 class="section-title" style="font-size:26px;">Our Approach</h3>
+          <div class="grid three-col" id="approachGrid"></div>
         </div>
 
-        <p class="italic">
-          Our mission is to empower women veterans to rebuild their lives with dignity, resilience, and hope through tangible support and community connection.
-        </p>
-      </div>
-    </div>
-  </section>
+        <div style="margin-top:44px;">
+          <h3 class="section-title" style="font-size:26px;">Why Moral Injury Matters</h3>
+          <p class="section-subtitle" style="margin-bottom:18px;">
+            Moral injury can affect how servicewomen experience:
+          </p>
+          <div class="grid four-col" id="whyGrid"></div>
+          <p style="margin:18px auto 0; max-width:900px; text-align:center; font-style:italic; color:#374151; font-size:18px; line-height:1.6;">
+            MISNS is committed to making support more accessible, trauma-informed, and inclusive.
+          </p>
+        </div>
 
-  <!-- Support -->
-  <section id="support" class="white reveal">
-    <div class="container">
-      <h2 class="section-title">How We Support Women Veterans</h2>
-      <p class="section-subtitle">
-        Our comprehensive support includes essential resources and services designed to address the unique challenges faced by women veterans.
-      </p>
-
-      <div class="grid support" id="supportGrid"></div>
-    </div>
-  </section>
-
-  <!-- Sponsorship -->
-  <section id="sponsorship" class="bg2 reveal">
-    <div class="container">
-      <h2 class="section-title">Join Us in Making a Difference</h2>
-      <p class="section-subtitle">
-        Your support helps us reach more women veterans and expand our services. Consider partnering with us through sponsorship or tangible goods donations.
-      </p>
-
-      <h3 class="section-title" style="font-size:26px; margin-top:26px;">Sponsorship Levels</h3>
-
-      <div class="grid levels" id="levelsGrid" style="margin: 24px auto 44px;"></div>
-
-      <div class="goods" style="margin-bottom:26px;">
-        <h3 class="section-title" style="font-size:26px; margin:0 0 14px;">Tangible Goods Sponsorships</h3>
-        <div class="goods-grid">
-          <div>
-            <h4><span class="dot">•</span>Gift Cards</h4>
-            <div>$100 each for groceries, gas, and essential needs</div>
-          </div>
-          <div>
-            <h4><span class="dot">•</span>Hygiene Supplies</h4>
-            <div>Toilet paper, paper towels, cleaning sprays, laundry detergent</div>
-          </div>
-          <div>
-            <h4><span class="dot">•</span>Household Essentials</h4>
-            <div>Bedding, kitchen supplies, and home goods</div>
-          </div>
-          <div>
-            <h4><span class="dot">•</span>Professional Attire</h4>
-            <div>Business clothing for job interviews and workplace needs</div>
+        <div style="margin-top:44px;">
+          <div class="panel">
+            <h3 class="section-title" style="font-size:26px; margin-top:0;">Program Goal</h3>
+            <p class="section-subtitle" style="margin-bottom:18px;">
+              To increase awareness of moral injury among women veterans and influence systems (nonprofit, government, and private sector) to improve access to mental health support and basic needs resources for servicewomen.
+            </p>
+            <h4 class="section-title" style="font-size:20px; margin:14px 0 14px;">Advocacy Objectives</h4>
+            <ul class="list" id="objectivesList" style="max-width:780px; margin:0 auto;"></ul>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div style="text-align:center;">
-        <button class="btn primary" id="becomeSponsorBtn" type="button">Become a Sponsor</button>
+  <!-- Audiences -->
+  <section id="audiences" class="white reveal">
+    <div class="container">
+      <h2 class="section-title">Who We Serve and Engage</h2>
+      <p class="section-subtitle">
+        Our advocacy focuses on four key audiences to create systemic change and expand support networks for women veterans.
+      </p>
+      <div class="grid four-col" id="audiencesGrid" style="max-width:1100px; margin:0 auto;"></div>
+    </div>
+  </section>
+
+  <!-- What we do -->
+  <section id="what-we-do" class="bg2 reveal">
+    <div class="container">
+      <h2 class="section-title">What We Do</h2>
+      <p class="section-subtitle">
+        Advocacy activities that drive awareness, build partnerships, and connect women veterans to critical resources.
+      </p>
+      <div class="panel" style="max-width:900px; margin:0 auto;">
+        <ul class="list" id="activitiesList"></ul>
       </div>
     </div>
   </section>
 
-  <!-- Get Involved -->
-  <section id="get-involved" class="white reveal">
+  <!-- Ambassador -->
+  <section id="ambassador" class="white reveal">
     <div class="container">
-      <h2 class="section-title">How You Can Support Women Veterans</h2>
+      <h2 class="section-title">Become a Volunteer Ambassador</h2>
       <p class="section-subtitle">
-        There are many ways to make a meaningful difference in the lives of women veterans. Join us in creating lasting change.
+        Represent MISNS in the community and support outreach efforts using trauma-informed, survivor-centered approaches.
+      </p>
+
+      <div class="two-col">
+        <!-- Left -->
+        <div>
+          <h3 style="margin:0 0 12px; color:var(--green); font-weight:950; font-size:22px;">🌟 Ambassador Role Overview</h3>
+          <p style="margin:0 0 12px; color:#374151; line-height:1.65;">
+            Volunteer Ambassadors represent MISNS in the community and support outreach and awareness efforts using MISNS-approved messaging and materials.
+          </p>
+          <p style="margin:0 0 18px; color:#374151; line-height:1.65;">
+            This is a flexible, volunteer role designed to fit around your schedule while making a meaningful impact.
+          </p>
+
+          <h4 style="margin:0 0 10px; color:var(--green); font-weight:950; font-size:18px;">Who can apply</h4>
+          <ul class="list" style="margin-bottom:18px;">
+            <li><span class="check">✓</span><span>Women veterans only OR individuals already connected with MISNS</span></li>
+            <li><span class="check">✓</span><span>Comfortable with outreach, education, and supportive conversations</span></li>
+            <li><span class="check">✓</span><span>Willing to use trauma-informed and survivor-centered communication</span></li>
+          </ul>
+
+          <h4 style="margin:0 0 10px; color:var(--green); font-weight:950; font-size:18px;">What Ambassadors Do</h4>
+          <ul class="list" id="responsibilitiesList" style="margin-bottom:18px;"></ul>
+
+          <div class="card" style="background:var(--bg2); border-color:var(--cream);">
+            <h4 style="margin:0 0 6px; color:var(--green);">Important:</h4>
+            <p style="margin:0; color:#374151;">Documentation is done only with consent.</p>
+          </div>
+
+          <h4 style="margin:18px 0 10px; color:var(--green); font-weight:950; font-size:18px;">Trauma-Informed Training Provided</h4>
+          <ul class="list" id="trainingList"></ul>
+        </div>
+
+        <!-- Right -->
+        <div>
+          <h3 style="margin:0 0 12px; color:var(--green); font-weight:950; font-size:22px;">📅 Monthly Ambassador Targets</h3>
+          <div class="card" style="background:var(--bg2);">
+            <ul class="list" style="margin:0;">
+              <li><span style="font-weight:950; color:var(--green);">1</span><span>Attend 1 veteran/community event</span></li>
+              <li><span style="font-weight:950; color:var(--green);">5–10</span><span>Conduct outreach conversations</span></li>
+              <li><span style="font-weight:950; color:var(--green);">1–3</span><span>Encourage women veterans to connect with MISNS</span></li>
+              <li><span style="font-weight:950; color:var(--green);">2+</span><span>Share MISNS posts on social media</span></li>
+              <li><span class="check">✓</span><span>Submit weekly activity updates</span></li>
+            </ul>
+          </div>
+
+          <h3 style="margin:22px 0 12px; color:var(--green); font-weight:950; font-size:22px;">💬 What We Discuss in Monthly Check-ins</h3>
+          <div class="card">
+            <ul class="list" style="margin:0;">
+              <li><span class="check">✓</span><span>Wins and success stories</span></li>
+              <li><span class="check">✓</span><span>Challenges and barriers</span></li>
+              <li><span class="check">✓</span><span>Emotional check-in and support needs</span></li>
+              <li><span class="check">✓</span><span>Referral outcomes and community feedback</span></li>
+            </ul>
+          </div>
+
+          <div style="text-align:center; margin-top:18px;">
+            <button class="btn primary" id="applyAmbassadorBtn" type="button">Apply to Become an Ambassador</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnerships -->
+  <section id="partnerships" class="bg2 reveal">
+    <div class="container">
+      <h2 class="section-title">Partnership Development</h2>
+      <p class="section-subtitle">
+        Build meaningful collaborations that expand resources and support systems for women veterans.
       </p>
 
       <div class="two-col">
         <div>
-          <h3 class="mini-title"><span style="color:var(--sage3);">✊</span> Volunteer &amp; Community Engagement</h3>
-          <ul class="list" id="volunteerList"></ul>
-          <button class="btn primary" id="volunteerBtn" type="button">Join as a Volunteer</button>
+          <h3 style="margin:0 0 12px; color:var(--green); font-weight:950; font-size:22px;">🤝 Who We Partner With</h3>
+          <ul class="list" style="margin-bottom:18px;">
+            <li><span class="check">✓</span><span>Veteran-serving nonprofits</span></li>
+            <li><span class="check">✓</span><span>Housing and utility providers</span></li>
+            <li><span class="check">✓</span><span>Healthcare organizations</span></li>
+            <li><span class="check">✓</span><span>Corporate sponsors and community supporters</span></li>
+          </ul>
+
+          <h3 style="margin:22px 0 12px; color:var(--green); font-weight:950; font-size:22px;">🎯 Partnership Goals</h3>
+          <ul class="list">
+            <li><span class="check">✓</span><span>Expanded eligibility for services</span></li>
+            <li><span class="check">✓</span><span>Flexible funding for emergency needs</span></li>
+            <li><span class="check">✓</span><span>Strong referral pipelines to MISNS</span></li>
+            <li><span class="check">✓</span><span>Material or financial support for women veterans</span></li>
+          </ul>
         </div>
 
-        <div>
-          <h3 class="mini-title"><span style="color:var(--green);">🤝</span> Partnering with Local Organizations</h3>
-          <p style="color:#374151; line-height:1.65; margin:0 0 14px;">
-            We welcome collaborations with organizations that share our commitment to supporting women veterans. Together, we can expand resources, streamline referrals, and build stronger support networks.
+        <div class="panel">
+          <h3 class="section-title" style="font-size:26px; margin-top:0;">Ready to Partner With MISNS?</h3>
+          <p class="section-subtitle" style="margin-bottom:18px;">
+            Join our network of organizations committed to creating meaningful change for women veterans. Together, we can build stronger support systems and drive systemic improvements.
           </p>
-          <div class="list" style="margin-bottom:18px;">
-            <div style="display:flex; gap:10px;"><span style="font-weight:900; color:var(--green);">•</span><span>Veteran-serving nonprofits</span></div>
-            <div style="display:flex; gap:10px;"><span style="font-weight:900; color:var(--green);">•</span><span>Housing and utility providers</span></div>
-            <div style="display:flex; gap:10px;"><span style="font-weight:900; color:var(--green);">•</span><span>Healthcare organizations</span></div>
-            <div style="display:flex; gap:10px;"><span style="font-weight:900; color:var(--green);">•</span><span>Local businesses and corporations</span></div>
+
+          <div style="text-align:center; margin-bottom:18px;">
+            <button class="btn dark" id="partnerBtn" type="button">Partner With MISNS</button>
           </div>
-          <button class="btn" style="background:var(--green); color:#fff;" id="partnerBtn" type="button">
-            Explore Partnership Opportunities
-          </button>
+
+          <div style="border-top:1px solid var(--cream); padding-top:16px;">
+            <h4 class="section-title" style="font-size:20px; margin:0 0 14px;">Program Leadership and Roles</h4>
+            <div class="grid" id="leadershipGrid"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="bg2 reveal">
+  <!-- Process / Timeline / Tracking -->
+  <section id="process" class="white reveal">
     <div class="container">
-      <h2 class="section-title">Testimonials &amp; Success Stories</h2>
-      <p class="section-subtitle">
-        Hear from the women veterans whose lives have been transformed through the Veterans Hope Project.
+      <h2 class="section-title">Our Implementation Process</h2>
+      <p class="section-subtitle">Structured approach to program launch, tracking, and continuous improvement.</p>
+
+      <div style="max-width:1100px; margin:0 auto;">
+        <h3 class="section-title" style="font-size:26px;">Implementation Timeline</h3>
+        <div class="grid three-col" id="timelineGrid" style="margin-bottom:28px;"></div>
+
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 12px; color:var(--green); font-weight:950; font-size:22px;">📊 Tracking and Accountability</h3>
+            <p style="margin:0 0 12px; color:#374151; line-height:1.65;">
+              The Manager/Director of Support Services tracks outcomes through documentation, including:
+            </p>
+            <div class="card" style="background:var(--bg2);">
+              <ul class="list" id="metricsList" style="margin:0;"></ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="margin:0 0 12px; color:var(--green); font-weight:950; font-size:22px;">🔄 Monthly Review Process</h3>
+            <p style="margin:0 0 12px; color:#374151; line-height:1.65;">Each month, MISNS reviews:</p>
+            <div class="card" style="background:var(--bg2);">
+              <ul class="list" style="margin:0;">
+                <li><span class="check">✓</span><span>Ambassador engagement and well-being</span></li>
+                <li><span class="check">✓</span><span>Advocacy activities completed</span></li>
+                <li><span class="check">✓</span><span>Referral outcomes and trends</span></li>
+                <li><span class="check">✓</span><span>Partnership progress and opportunities</span></li>
+                <li><span class="check">✓</span><span>Improvements needed in materials or training</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section id="cta" class="cta-band reveal">
+    <div class="container" style="text-align:center;">
+      <h2 style="margin:0 0 12px; font-weight:950; font-size: clamp(26px, 3.1vw, 42px); color:#fff;">
+        Ready to Join or Partner?
+      </h2>
+      <p style="margin:0 auto 22px; max-width:900px; color:var(--cream); opacity:.95; font-size:18px; line-height:1.6;">
+        Together, we can create meaningful change for women veterans experiencing moral injury.
       </p>
 
-      <div class="test-grid" id="testGrid"></div>
+      <div class="cta-cards">
+        <div class="cta-card one">
+          <div style="font-size:54px; margin-bottom:6px;">🌟</div>
+          <h3 style="margin:0 0 8px; font-weight:950;">Become a Volunteer Ambassador</h3>
+          <p style="margin:0 0 14px; color:var(--cream);">Flexible, meaningful, community-driven outreach</p>
+          <button class="btn light" id="applyNowBtn" type="button">Apply Now</button>
+        </div>
+
+        <div class="cta-card two">
+          <div style="font-size:54px; margin-bottom:6px;">🤝</div>
+          <h3 style="margin:0 0 8px; font-weight:950;">Partner With MISNS</h3>
+          <p style="margin:0 0 14px; color:var(--cream);">Build referral pathways and expand resources for women veterans</p>
+          <button class="btn light" id="explorePartnershipBtn" type="button">Explore Partnership</button>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="white reveal">
     <div class="container">
-      <h2 class="section-title">Contact &amp; Support</h2>
+      <h2 class="section-title">Contact Us</h2>
       <p class="section-subtitle">
-        Reach out to us with your questions, partnership inquiries, or to learn more about how you can support our mission.
+        Reach out to learn more about the Advocacy &amp; Ambassador Program, partnership opportunities, or to refer a servicewoman.
       </p>
 
-      <div class="contact-grid">
-        <!-- Contact Form -->
+      <div class="two-col">
+        <!-- Form -->
         <div>
-          <form id="contactForm" class="form-row">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" required />
+          <form id="contactForm" class="panel" style="padding:22px;">
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button class="btn dark" type="submit" style="width:100%;">Send Message</button>
             </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-            <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button class="btn" style="background:var(--green); color:#fff; width:max-content;" type="submit">
-              Send Message
-            </button>
           </form>
         </div>
 
-        <!-- Contact Info -->
+        <!-- Info -->
         <div>
-          <div class="info-box">
-            <h3>Get in Touch</h3>
+          <div class="card soft" style="padding:24px; border-radius:22px; background:var(--bg);">
+            <h3 style="margin:0 0 12px; color:var(--green); font-weight:950; font-size:22px;">Get in Touch</h3>
 
-            <div class="info-stack">
-              <div class="info-item">
-                <h4>📞 Phone</h4>
-                <p>(555) 123-4567</p>
+            <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:16px;">
+              <div>
+                <div style="font-weight:900; color:#111827; margin-bottom:4px;">✉️ Email</div>
+                <div>advocacy@misns.org</div>
               </div>
-              <div class="info-item">
-                <h4>✉️ Email</h4>
-                <p>support@misns.org</p>
+              <div>
+                <div style="font-weight:900; color:#111827; margin-bottom:4px;">📞 Phone</div>
+                <div>(555) 789-1234</div>
               </div>
-              <div class="info-item">
-                <h4>📍 Address</h4>
-                <p>123 Hope Avenue, Washington, DC 20001</p>
+              <div>
+                <div style="font-weight:900; color:#111827; margin-bottom:4px;">📍 Address</div>
+                <div>123 Hope Avenue, Washington, DC 20001</div>
               </div>
             </div>
 
-            <div style="margin-bottom:16px;">
-              <div style="font-weight:900; margin-bottom:10px;">Follow Us</div>
+            <div style="margin:14px 0 18px;">
+              <div style="font-weight:900; margin-bottom:8px;">Follow Our Advocacy Work</div>
               <div class="social-row">
                 <a class="social" href="#" aria-label="Facebook">f</a>
                 <a class="social" href="#" aria-label="Twitter">t</a>
@@ -810,12 +690,21 @@
               </div>
             </div>
 
-            <div>
-              <div style="font-weight:900; margin-bottom:10px;">Resources</div>
-              <a class="pill" href="#" role="button">Download Sponsorship Brochure (PDF)</a>
+            <div class="card" style="background:var(--cream); border-color:var(--cream2); padding:16px;">
+              <div style="font-weight:950; color:var(--green);">Referring a servicewoman in need?</div>
+              <div style="margin-top:6px; color:#374151; line-height:1.55;">
+                Use our secure referral form to connect her with MISNS support services.
+              </div>
+              <div style="text-align:center; margin-top:12px;">
+                <button class="btn primary" id="secureReferralBtn" type="button" style="padding:10px 18px;">
+                  Secure Referral Form
+                </button>
+              </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -837,27 +726,27 @@
         <div>
           <h3>Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="#about">About the Project</a></li>
-            <li><a href="#sponsorship">How to Support</a></li>
-            <li><a href="#get-involved">Get Involved</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About the Program</a></li>
+            <li><a href="#ambassador">Become an Ambassador</a></li>
+            <li><a href="#partnerships">Partner With Us</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h3>Legal</h3>
+          <h3>Program Focus</h3>
           <ul class="footer-links">
-            <li><a href="#">About MISNS</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Financial Transparency</a></li>
+            <li><a href="#approach">Our Approach</a></li>
+            <li><a href="#audiences">Who We Serve</a></li>
+            <li><a href="#what-we-do">Advocacy Activities</a></li>
+            <li><a href="#process">Implementation Process</a></li>
           </ul>
         </div>
 
         <div>
           <h3>Newsletter</h3>
-          <p style="margin:0 0 12px;">Stay updated with our latest initiatives and success stories.</p>
+          <p style="margin:0 0 12px;">Stay updated on advocacy efforts and partnership opportunities.</p>
           <form id="newsletterForm" class="newsletter">
             <div class="row">
               <input id="newsletterEmail" type="email" placeholder="Your email address" required />
@@ -876,69 +765,85 @@
     // Data (from your React arrays)
     // ----------------------------
     const navItems = [
-      { name: 'Home', href: '#home' },
-      { name: 'About the Project', href: '#about' },
-      { name: 'How to Support', href: '#sponsorship' },
-      { name: 'Get Involved', href: '#get-involved' },
-      { name: 'Contact', href: '#contact' },
-      { name: 'Testimonials', href: '#testimonials' }
+      { name: 'Home', href: '#hero' },
+      { name: 'About', href: '#about' },
+      { name: 'Our Approach', href: '#approach' },
+      { name: 'Get Involved', href: '#get-involved' }, // (kept from your nav even though section isn't separate in your JSX)
+      { name: 'Contact', href: '#contact' }
     ];
 
-    const supportItems = [
-      { icon: '🍽️', title: 'Essential Resources', description: 'Food, clothing, household essentials, and cleaning supplies' },
-      { icon: '🚗', title: 'Transportation', description: 'Non-emergency medical transportation services' },
-      { icon: '🧠', title: 'Mental Health Support', description: 'Counseling and peer support groups' },
-      { icon: '💼', title: 'Career Development', description: 'Vocational training, educational resources, and job placement assistance' },
-      { icon: '🤝', title: 'Community Building', description: 'Peer networks and mentorship programs' }
+    const approachItems = [
+      { icon: '🎯', title: 'Practical Translation', description: 'Translate moral injury into practical realities like housing instability, financial strain, and healthcare access' },
+      { icon: '🔄', title: 'Systems Focus', description: 'Focus on systems change, not individual blame' },
+      { icon: '🤝', title: 'Inclusive Access', description: 'Prioritize access and inclusion—especially for women veterans traditionally excluded from support' }
     ];
 
-    const sponsorshipLevels = [
-      {
-        level: 'Platinum Sponsor',
-        amount: '$5,000',
-        benefits: [
-          'Recognition on all MISNS social media, website, and press releases',
-          'Inclusion in all communications and media rights'
-        ]
-      },
-      {
-        level: 'Gold Sponsor',
-        amount: '$2,500',
-        benefits: [
-          'Recognition on social media and reports',
-          'Acknowledgment in press outreach'
-        ]
-      },
-      {
-        level: 'Bronze Sponsor',
-        amount: '$1,000',
-        benefits: [
-          'Recognition on social media'
-        ]
-      }
+    const whyMattersItems = [
+      { icon: '🏠', title: 'Housing & Financial Stability', description: 'Moral injury impacts housing security and financial well-being' },
+      { icon: '🏥', title: 'Healthcare Access', description: 'Creates barriers to mental health support and medical care' },
+      { icon: '👥', title: 'Isolation & Stigma', description: 'Leads to social isolation and reluctance to seek help' },
+      { icon: '🧩', title: 'System Navigation', description: 'Complicates navigation of complex systems and eligibility challenges' } // fixed your " labyrinth" typo
     ];
 
-    const volunteerOpportunities = [
-      'Attend veteran-related events and panels',
-      'Conduct outreach conversations via phone or online',
-      'Share MISNS social media posts and educational content',
-      'Promote upcoming events and initiatives',
-      'Share success stories and challenges to inspire others'
+    const objectives = [
+      'Raise awareness of moral injury and its unique effects on servicewomen',
+      'Increase access to basic needs support, financial aid, and mental health services',
+      'Encourage inclusive, trauma-informed practices across sectors',
+      'Expand MISNS referral channels through persistent, values-driven outreach'
     ];
 
-    const testimonials = [
-      {
-        quote: "This project gave me hope when I had none. The support I received helped me get back on my feet.",
-        author: "Jane D., Army Veteran"
-      },
-      {
-        quote: "The community connection and resources were exactly what my family needed during a difficult transition.",
-        author: "Maria S., Navy Veteran"
-      },
-      {
-        quote: "Thanks to the job training, I secured a stable job and can now provide for my children.",
-        author: "Sarah L., Air Force Veteran"
-      }
+    const audiences = [
+      { icon: '👩‍✈️', title: 'Women Veterans', description: 'Increase understanding of moral injury, encourage help-seeking, reduce isolation and stigma' },
+      { icon: '🤝', title: 'Veteran-Serving Nonprofits', description: 'Promote inclusive eligibility, encourage women-focused funding, strengthen referral partnerships' },
+      { icon: '🏛️', title: 'Government Organizations', description: 'Advocate for funding, promote recognition of moral injury, reduce administrative barriers' },
+      { icon: '💼', title: 'Corporate Partners', description: 'Encourage sponsorships, build partnerships for resources, promote measurable CSR impact' }
+    ];
+
+    const advocacyActivities = [
+      'Attending conferences, veteran events, and community forums',
+      'Participating in panels and discussions',
+      'Writing letters of support to agencies and organizations',
+      'Meeting with nonprofit, government, and corporate stakeholders',
+      'Sharing MISNS-approved educational content',
+      'Encouraging servicewomen to seek MISNS support',
+      'Referring women veterans to MISNS services'
+    ];
+
+    const ambassadorResponsibilities = [
+      'Attend veteran/community events',
+      'Conduct 5–10 outreach conversations monthly',
+      'Encourage 1–3 women veterans to connect with MISNS',
+      'Share at least 2 MISNS posts monthly',
+      'Submit weekly activity updates'
+    ];
+
+    const ambassadorTraining = [
+      'Understanding moral injury',
+      'Gender-specific impacts on women veterans',
+      'How to talk about MISNS safely',
+      'MISNS outreach goals and boundaries',
+      'Referral pathways + FAQ for partners'
+    ];
+
+    const leadershipRoles = [
+      { role: 'Program Owner', person: 'MISNS CEO' },
+      { role: 'Program Lead', person: 'Manager/Director of Support Services' },
+      { role: 'Day-to-Day Coordinator', person: 'Care Coordinator' },
+      { role: 'Volunteer Role', person: 'Volunteer Ambassador' }
+    ];
+
+    const timelineItems = [
+      { period: 'January', activities: ['Finalize materials, agreements, and recruitment','Complete trauma-informed ambassador training content'] },
+      { period: 'February', activities: ['Ambassador onboarding and soft launch','Begin community outreach activities'] },
+      { period: 'March onward', activities: ['Full implementation with monthly review','Monthly meetings/panels (e.g., VFMA)','Workshops and social media awareness campaigns'] }
+    ];
+
+    const trackingMetrics = [
+      'Number of active ambassadors',
+      'Events attended',
+      'Outreach conversations conducted',
+      'Referrals made to MISNS services',
+      'Stakeholder contacts established'
     ];
 
     // ----------------------------
@@ -953,68 +858,82 @@
     }
 
     // ----------------------------
-    // Init
+    // Render content
     // ----------------------------
     renderNav($('#desktopNav'));
     renderNav($('#mobileNav'));
 
-    // Support cards
-    $('#supportGrid').innerHTML = supportItems.map(item => `
+    $('#approachGrid').innerHTML = approachItems.map(item => `
       <div class="card">
         <div class="icon">${item.icon}</div>
-        <h3>${item.title}</h3>
+        <h4>${item.title}</h4>
         <p>${item.description}</p>
       </div>
     `).join('');
 
-    // Sponsorship levels
-    $('#levelsGrid').innerHTML = sponsorshipLevels.map((lvl, idx) => {
-      const isPlatinum = idx === 0;
-      return `
-        <div class="level-card ${isPlatinum ? 'platinum' : ''}">
-          <div class="level-title">${lvl.level}</div>
-          <div class="level-amount">${lvl.amount}</div>
-          <ul class="benefits">
-            ${lvl.benefits.map(b => `
-              <li><span class="check">✓</span><span>${b}</span></li>
-            `).join('')}
-          </ul>
-          ${isPlatinum ? '<div class="badge">BEST VALUE</div>' : '<div style="height:26px;"></div>'}
-          <button class="btn" style="background:var(--green); color:#fff;" type="button" data-level="${lvl.level}">
-            Select
-          </button>
-        </div>
-      `;
-    }).join('');
-
-    // Volunteer list
-    $('#volunteerList').innerHTML = volunteerOpportunities.map(v => `
-      <li><span class="check">✓</span><span>${v}</span></li>
+    $('#whyGrid').innerHTML = whyMattersItems.map(item => `
+      <div class="card" style="text-align:center;">
+        <div class="icon" style="font-size:34px;">${item.icon}</div>
+        <h4 style="margin-bottom:6px;">${item.title}</h4>
+        <p style="font-size:14px; margin:0;">${item.description}</p>
+      </div>
     `).join('');
 
-    // Testimonials
-    $('#testGrid').innerHTML = testimonials.map((t, idx) => `
-      <div class="tcard">
-        <div class="quote-mark">"</div>
-        <p>${t.quote}</p>
-        <div class="author">${t.author}</div>
-        <div class="bubble">${idx + 1}</div>
+    $('#objectivesList').innerHTML = objectives.map(x => `
+      <li><span class="check">✓</span><span>${x}</span></li>
+    `).join('');
+
+    $('#audiencesGrid').innerHTML = audiences.map(a => `
+      <div class="card soft" style="text-align:center; padding:24px;">
+        <div class="icon" style="font-size:48px;">${a.icon}</div>
+        <h3 style="font-size:20px; margin-bottom:8px;">${a.title}</h3>
+        <p>${a.description}</p>
       </div>
+    `).join('');
+
+    $('#activitiesList').innerHTML = advocacyActivities.map(x => `
+      <li><span class="dot">•</span><span>${x}</span></li>
+    `).join('');
+
+    $('#responsibilitiesList').innerHTML = ambassadorResponsibilities.map(x => `
+      <li><span class="check">✓</span><span>${x}</span></li>
+    `).join('');
+
+    $('#trainingList').innerHTML = ambassadorTraining.map(x => `
+      <li><span class="check">✓</span><span>${x}</span></li>
+    `).join('');
+
+    $('#leadershipGrid').innerHTML = leadershipRoles.map(x => `
+      <div class="card soft" style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
+        <span style="font-weight:650;">${x.role}</span>
+        <span style="font-weight:950; color:var(--sage);">${x.person}</span>
+      </div>
+    `).join('');
+
+    $('#timelineGrid').innerHTML = timelineItems.map(x => `
+      <div class="card" style="background:var(--bg2);">
+        <div style="font-size:22px; font-weight:950; color:var(--sage); margin-bottom:10px;">${x.period}</div>
+        <ul class="list" style="margin:0;">
+          ${x.activities.map(a => `<li><span class="dot">•</span><span>${a}</span></li>`).join('')}
+        </ul>
+      </div>
+    `).join('');
+
+    $('#metricsList').innerHTML = trackingMetrics.map(x => `
+      <li><span class="check">✓</span><span>${x}</span></li>
     `).join('');
 
     // Footer year
     const year = new Date().getFullYear();
     $('#footerBottom').innerHTML = `
       <div>© ${year} Moral Injury Support Network for Servicewomen (MISNS). All rights reserved.</div>
-      <div>The Veterans Hope Project: February 1, 2026 - January 31, 2027</div>
+      <div>MISNS Advocacy &amp; Ambassador Program: Building systems of support for women veterans</div>
     `;
 
     // ----------------------------
     // Header scroll behavior
     // ----------------------------
     const header = $('#siteHeader');
-    const brand = $('#brand');
-
     function handleScroll() {
       if (window.scrollY > 50) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
@@ -1033,19 +952,13 @@
       menuBtn.setAttribute('aria-expanded', String(open));
       menuBtn.textContent = open ? '✕' : '☰';
     }
-
-    menuBtn.addEventListener('click', () => {
-      setMenu(!mobileMenu.classList.contains('open'));
-    });
-
+    menuBtn.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
     document.addEventListener('click', (e) => {
-      if (e.target && e.target.matches('[data-nav]')) {
-        setMenu(false);
-      }
+      if (e.target && e.target.matches('[data-nav]')) setMenu(false);
     });
 
     // ----------------------------
-    // Contact form (alerts like React)
+    // Contact form + newsletter (alerts like React)
     // ----------------------------
     $('#contactForm').addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1053,7 +966,6 @@
       e.target.reset();
     });
 
-    // Newsletter form
     $('#newsletterForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const email = $('#newsletterEmail').value.trim();
@@ -1061,21 +973,12 @@
       e.target.reset();
     });
 
-    // Sponsor/Volunteer/Partner buttons (optional demo alerts)
-    $('#becomeSponsorBtn').addEventListener('click', () => {
-      alert('Thank you for your interest in sponsoring! (Hook this button to your donation flow.)');
-    });
-    $('#volunteerBtn').addEventListener('click', () => {
-      alert('Thanks for volunteering! (Hook this button to your volunteer sign-up form.)');
-    });
-    $('#partnerBtn').addEventListener('click', () => {
-      alert('Thanks for your interest in partnering! (Hook this button to your partnership inquiry form.)');
-    });
-
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('button[data-level]');
-      if (btn) alert(`Selected: ${btn.getAttribute('data-level')} (Hook to checkout)`);
-    });
+    // CTA buttons (optional demo alerts)
+    $('#applyAmbassadorBtn').addEventListener('click', () => alert('Ambassador application: connect this button to your form.'));
+    $('#applyNowBtn').addEventListener('click', () => alert('Apply Now: connect this button to your form.'));
+    $('#explorePartnershipBtn').addEventListener('click', () => alert('Partnership: connect this button to your intake form.'));
+    $('#partnerBtn').addEventListener('click', () => alert('Partner With MISNS: connect this button to your intake form.'));
+    $('#secureReferralBtn').addEventListener('click', () => alert('Secure Referral Form: connect this button to your referral form.'));
 
     // ----------------------------
     // Simple "framer-motion-like" reveal on scroll
@@ -1086,9 +989,7 @@
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
-
     revealEls.forEach(el => io.observe(el));
   </script>
 </body>
 </html>
-

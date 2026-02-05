@@ -1,79 +1,92 @@
-<!DOCTYPE html>
+<!--
+  Save this as: index.html
+  Works on GitHub Pages as a single-file site (no build tools).
+  Includes:
+   - Sticky header that changes on scroll
+   - Mobile menu toggle
+   - Smooth anchor scrolling
+   - Simple "reveal on scroll" animations (replaces Framer Motion)
+   - Contact + Newsletter forms with alerts
+  Optional:
+   - Replace hero background URL + add /images folder for local images
+-->
+
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MISNS Advocacy & Ambassador Program</title>
-  <meta name="description" content="Survivor-centered outreach. System-level change. Real support for servicewomen." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="MISNS Advocacy & Ambassador Program: survivor-centered outreach, system-level change, real support for servicewomen." />
 
   <style>
     :root{
       --bg: #f8f5f0;
-      --bg2:#f5f0e6;
-      --olive:#3a4a38;
-      --olive2:#2a3528;
-      --sage:#5a6b55;
-      --sage2:#4a5b45;
-      --mist:#8a9b88;
-      --cream:#f5f0e6;
-      --cream2:#e8e1d1;
+      --panel: #ffffff;
+      --muted: #f5f0e6;
+      --text: #2b2b2b;
+      --olive: #3a4a38;
+      --olive-2:#2a3528;
+      --sage: #5a6b55;
+      --sage-2:#4a5b45;
+      --sand:#e8e1d1;
       --border:#d6cfc0;
-      --text:#1f2937;
-      --shadow: 0 10px 25px rgba(0,0,0,.08);
+      --shadow: 0 12px 28px rgba(0,0,0,.12);
+      --shadow2: 0 10px 20px rgba(0,0,0,.10);
       --radius: 18px;
-      --max: 1140px;
+      --radius2: 26px;
+      --max: 1100px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior: smooth; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color: var(--text);
       background: var(--bg);
-      line-height: 1.55;
+      line-height: 1.5;
     }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .container{max-width: var(--max); margin:0 auto; padding:0 18px}
+    a{ color: inherit; text-decoration: none; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
 
     /* Header */
     header{
       position: sticky;
-      top:0;
-      z-index:50;
+      top: 0;
+      z-index: 50;
       transition: all .25s ease;
       padding: 18px 0;
       background: transparent;
     }
     header.scrolled{
       background: var(--olive);
-      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+      box-shadow: 0 8px 18px rgba(0,0,0,.18);
       padding: 10px 0;
     }
-    .header-inner{
+    .nav-row{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 16px;
     }
     .brand{
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
-      letter-spacing: .4px;
+      letter-spacing: .5px;
       color: #fff;
+      transition: color .25s ease;
     }
-    header.scrolled .brand{ color: var(--cream2); }
+    header.scrolled .brand{ color: var(--sand); }
 
-    nav.desktop{display:none}
+    nav.desktop{ display:none; }
     nav.desktop ul{
-      list-style:none; margin:0; padding:0;
-      display:flex; gap: 22px;
+      list-style:none;
+      display:flex;
+      gap: 18px;
+      padding:0;
+      margin:0;
+      align-items:center;
     }
     nav.desktop a{
       font-weight:600;
@@ -81,154 +94,152 @@
       opacity:.95;
       transition: opacity .2s ease, color .2s ease;
     }
-    header.scrolled nav.desktop a{ color: var(--cream2); }
-    nav.desktop a:hover{opacity:1; color: var(--cream2);}
+    header.scrolled nav.desktop a{ color: var(--sand); }
+    nav.desktop a:hover{ opacity:1; color: var(--border); }
 
     .menu-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:44px; height:44px;
-      border:none;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
-      background: var(--olive);
-      color:#fff;
-      font-size: 18px;
+      border: 0;
       cursor:pointer;
+      color:#fff;
+      background: var(--olive);
+    }
+    header.scrolled .menu-btn{
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
     }
 
     .mobile-menu{
       display:none;
       background: var(--bg);
       border-top: 1px solid var(--border);
-      box-shadow: 0 18px 30px rgba(0,0,0,.10);
+      box-shadow: 0 12px 28px rgba(0,0,0,.12);
       padding: 14px 0;
       margin-top: 10px;
     }
-    .mobile-menu.open{display:block}
-    .mobile-menu ul{
-      list-style:none; margin:0; padding:0;
-      display:flex; flex-direction:column; gap: 10px;
-    }
+    .mobile-menu.open{ display:block; }
+    .mobile-menu ul{ list-style:none; padding:0; margin:0; }
     .mobile-menu a{
       display:block;
-      padding: 10px 8px;
-      border-bottom: 1px solid var(--cream2);
+      padding: 12px 10px;
+      font-weight: 700;
       color: var(--olive);
-      font-weight: 600;
+      border-bottom: 1px solid var(--sand);
     }
-    .mobile-menu a:hover{color: var(--sage);}
+    .mobile-menu a:hover{ color: var(--sage); }
+
+    @media (min-width: 860px){
+      nav.desktop{ display:block; }
+      .menu-btn{ display:none; }
+      .mobile-menu{ display:none !important; }
+    }
+
+    /* Sections */
+    section{ padding: 70px 0; }
+    .bg-muted{ background: var(--muted); }
+    .bg-white{ background: #fff; }
+    .title{
+      font-size: clamp(26px, 3.2vw, 40px);
+      margin: 0 0 10px;
+      color: var(--olive);
+      font-weight: 900;
+      text-align:center;
+    }
+    .subtitle{
+      max-width: 820px;
+      margin: 0 auto 30px;
+      text-align:center;
+      color: #4a4a4a;
+      font-size: 18px;
+    }
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+    }
+    .grid{
+      display:grid;
+      gap: 18px;
+    }
+    .grid-3{ grid-template-columns: 1fr; }
+    .grid-4{ grid-template-columns: 1fr; }
+    .grid-2{ grid-template-columns: 1fr; }
+
+    @media (min-width: 860px){
+      .grid-2{ grid-template-columns: 1fr 1fr; }
+      .grid-3{ grid-template-columns: repeat(3, 1fr); }
+      .grid-4{ grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 0;
+      cursor:pointer;
+      transition: transform .08s ease, background .18s ease, color .18s ease;
+      box-shadow: 0 10px 16px rgba(0,0,0,.14);
+    }
+    .pill:active{ transform: translateY(1px); }
+    .pill.primary{ background: var(--sage); color:#fff; }
+    .pill.primary:hover{ background: var(--sage-2); }
+    .pill.secondary{ background: var(--sand); color: var(--olive); }
+    .pill.secondary:hover{ background: var(--border); }
+    .pill.dark{ background: var(--olive); color:#fff; box-shadow:none; }
+    .pill.dark:hover{ background: var(--olive-2); }
 
     /* Hero */
     .hero{
-      min-height: 100vh;
+      height: 100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       color:#fff;
-      text-align:center;
-      position:relative;
-      background:
-        linear-gradient(rgba(58, 74, 56, 0.85), rgba(42, 53, 40, 0.9)),
-        url("https://placehold.co/1600x900/3a4a38/e8e1d1?text=Women+Veterans+Advocacy");
-      background-size:cover;
+      padding: 0;
+      background-size: cover;
       background-position:center;
+      position: relative;
+    }
+    .hero .inner{
+      text-align:center;
+      padding: 0 18px;
+      max-width: 980px;
     }
     .hero h1{
-      font-size: clamp(34px, 4vw, 60px);
-      margin: 0 0 16px;
-      letter-spacing: .2px;
+      font-size: clamp(34px, 5vw, 60px);
+      margin: 0 0 14px;
+      font-weight: 900;
     }
-    .hero p.lead{
-      font-size: clamp(18px, 1.7vw, 26px);
-      font-weight: 300;
-      margin: 0 auto 12px;
-      max-width: 980px;
+    .hero p{
+      margin: 0 auto 16px;
+      max-width: 860px;
     }
-    .hero p.sub{
-      font-size: clamp(16px, 1.2vw, 20px);
-      margin: 0 auto 26px;
-      max-width: 980px;
-      opacity: .95;
-    }
-    .btn-row{
+    .hero .lead{ font-size: clamp(18px, 2.3vw, 24px); opacity: .95; font-weight: 300;}
+    .hero .desc{ font-size: clamp(16px, 2vw, 20px); opacity: .95; }
+    .hero .actions{
+      margin-top: 22px;
       display:flex;
       flex-direction:column;
       gap: 12px;
       align-items:center;
       justify-content:center;
-      margin-top: 10px;
     }
-    .btn{
-      display:inline-block;
-      padding: 12px 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      box-shadow: 0 8px 18px rgba(0,0,0,.18);
-      transition: transform .15s ease, filter .15s ease;
-    }
-    .btn:hover{transform: translateY(-1px); filter: brightness(1.05);}
-    .btn.primary{background: var(--sage); color:#fff}
-    .btn.secondary{background: var(--mist); color:#fff}
-
-    /* Sections */
-    section{padding: 72px 0}
-    .bg2{background: var(--bg2)}
-    .bgW{background:#fff}
-    h2{
-      text-align:center;
-      margin: 0 0 10px;
-      color: var(--olive);
-      font-size: clamp(26px, 2.4vw, 40px);
-    }
-    .section-lead{
-      text-align:center;
-      max-width: 880px;
-      margin: 0 auto 34px;
-      color:#374151;
-      font-size: 18px;
-    }
-    .card{
-      background:#fff;
-      border: 1px solid var(--cream2);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .p24{padding:24px}
-    .p32{padding:32px}
-    .grid{
-      display:grid;
-      gap: 18px;
-    }
-    .grid-3{grid-template-columns: 1fr}
-    .grid-4{grid-template-columns: 1fr}
-    .grid-2{grid-template-columns: 1fr}
-    @media (min-width: 860px){
-      nav.desktop{display:block}
-      .menu-btn{display:none}
-      .grid-3{grid-template-columns: repeat(3, 1fr)}
-      .grid-4{grid-template-columns: repeat(4, 1fr)}
-      .grid-2{grid-template-columns: repeat(2, 1fr)}
-      .btn-row{flex-direction:row}
+    @media (min-width: 640px){
+      .hero .actions{ flex-direction: row; }
     }
 
-    .icon{
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-    h3{
-      margin: 0 0 10px;
-      color: var(--olive);
-      font-size: 24px;
-    }
-    h4{
-      margin: 0 0 10px;
-      color: var(--olive);
-      font-size: 18px;
-    }
-    .muted{color:#4b5563}
-
+    /* Lists */
     .list{
       margin:0;
       padding-left: 0;
@@ -239,135 +250,124 @@
     }
     .li{
       display:flex;
-      align-items:flex-start;
       gap: 10px;
+      align-items:flex-start;
+      color:#3b3b3b;
     }
-    .tick{color: var(--sage); font-weight: 900; margin-top: 2px;}
-    .dot{color: var(--sage); font-weight: 900; margin-top: 2px;}
+    .check{ color: var(--sage); font-weight: 900; margin-top: 2px; }
+    .dot{ color: var(--sage); font-weight: 900; margin-top: 2px; }
 
-    /* CTA */
-    .cta{
-      background: var(--olive);
-      color: var(--cream);
-      text-align:center;
+    /* Special */
+    .icon{
+      font-size: 44px;
+      line-height:1;
+      margin-bottom: 10px;
     }
-    .cta h2{color: var(--cream)}
-    .cta .section-lead{color: var(--cream2)}
-    .cta-box{
-      max-width: 820px;
-      margin: 0 auto;
-      background: var(--sage);
-      border-radius: 22px;
-      padding: 34px 22px;
-      box-shadow: 0 18px 30px rgba(0,0,0,.16);
+    .h3{
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: var(--olive);
+      font-weight: 900;
     }
-    .cta-box .big{font-size: 54px; margin-bottom: 10px}
-    .cta .btn.white{
-      background:#fff; color: var(--olive);
-      box-shadow: 0 12px 24px rgba(0,0,0,.20);
+    .h4{
+      margin: 18px 0 10px;
+      font-size: 18px;
+      color: var(--olive);
+      font-weight: 900;
+    }
+    .mutebox{
+      background: var(--muted);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: 16px;
     }
 
     /* Forms */
-    label{display:block; margin-bottom: 8px; color:#374151; font-weight: 600}
+    label{ display:block; font-weight: 800; margin: 0 0 8px; }
     input, textarea{
       width:100%;
-      padding: 12px 14px;
+      padding: 12px 12px;
       border-radius: 12px;
       border: 1px solid var(--border);
       outline: none;
-      font: inherit;
-      background:#fff;
+      font-size: 16px;
+      background: #fff;
     }
     input:focus, textarea:focus{
       border-color: var(--sage);
-      box-shadow: 0 0 0 3px rgba(90,107,85,.20);
+      box-shadow: 0 0 0 4px rgba(90,107,85,.20);
     }
-    .btn-full{
-      width:100%;
-      border:none;
-      cursor:pointer;
-      background: var(--olive);
-      color:#fff;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 16px;
-    }
-    .btn-full:hover{background: var(--olive2)}
-    .social{
-      display:flex; gap: 18px; justify-content:center;
-      font-size: 22px;
-    }
-    .pill{
-      background: var(--cream2);
-      border-radius: 14px;
-      padding: 16px;
-      text-align:center;
-    }
-    .pill button{
-      margin-top: 12px;
-      border:none;
-      cursor:pointer;
-      background: var(--sage);
-      color:#fff;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 800;
-    }
-    .pill button:hover{background: var(--sage2)}
+    textarea{ resize: vertical; }
 
     /* Footer */
     footer{
       background: var(--olive);
-      color: var(--cream);
-      padding: 48px 0;
+      color: var(--muted);
+      padding: 50px 0 30px;
     }
-    footer h4, footer h3{color: var(--cream)}
-    .footer-grid{
-      display:grid; gap: 22px;
+    footer .footgrid{
+      display:grid;
+      gap: 18px;
       grid-template-columns: 1fr;
     }
     @media (min-width: 860px){
-      .footer-grid{grid-template-columns: repeat(4, 1fr)}
+      footer .footgrid{ grid-template-columns: repeat(4, 1fr); }
     }
-    .foot-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: 8px;}
-    .foot-links a{color: var(--cream2)}
-    .foot-links a:hover{color:#fff}
-    .hr{
-      border-top: 1px solid var(--sage);
-      margin-top: 28px;
+    footer h4{ margin: 0 0 10px; font-size: 18px; font-weight: 900; }
+    footer p, footer a{ color: var(--muted); opacity: .95; }
+    footer a:hover{ opacity: 1; color: var(--sand); }
+    .footline{
+      border-top: 1px solid rgba(232,225,209,.25);
+      margin-top: 26px;
       padding-top: 18px;
       text-align:center;
       color: var(--border);
       font-size: 14px;
     }
 
-    /* Reveal animations (Framer replacement) */
+    /* Reveal animation (Framer Motion replacement) */
     .reveal{
       opacity: 0;
       transform: translateY(18px);
-      transition: opacity .6s ease, transform .6s ease;
+      transition: opacity .55s ease, transform .55s ease;
     }
     .reveal.visible{
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Small helpers */
+    .center{ text-align:center; }
+    .mb8{ margin-bottom: 8px; }
+    .mb16{ margin-bottom: 16px; }
+    .mb24{ margin-bottom: 24px; }
+    .mb30{ margin-bottom: 30px; }
+    .mt12{ margin-top: 12px; }
+    .mt20{ margin-top: 20px; }
+    .mt30{ margin-top: 30px; }
+    .mt40{ margin-top: 40px; }
+    .round2{ border-radius: var(--radius2); }
+    .shadow{ box-shadow: var(--shadow); }
   </style>
 </head>
 
 <body>
   <!-- Header -->
   <header id="siteHeader">
-    <div class="container header-inner">
-      <div class="brand">MISNS</div>
+    <div class="container">
+      <div class="nav-row">
+        <div class="brand" id="brandText">MISNS</div>
 
-      <!-- Desktop nav -->
-      <nav class="desktop" aria-label="Primary navigation">
-        <ul id="desktopNav"></ul>
-      </nav>
+        <!-- Desktop nav -->
+        <nav class="desktop" aria-label="Primary">
+          <ul id="desktopNav"></ul>
+        </nav>
 
-      <!-- Mobile menu button -->
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+        <!-- Mobile button -->
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+          ☰
+        </button>
+      </div>
     </div>
 
     <!-- Mobile menu -->
@@ -379,135 +379,192 @@
   </header>
 
   <!-- Hero -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <h1 class="reveal">MISNS Advocacy &amp; Ambassador Program</h1>
-      <p class="lead reveal">Survivor-centered outreach. System-level change. Real support for servicewomen.</p>
-      <p class="sub reveal">
-        We raise awareness of moral injury among women veterans and strengthen access to mental health support + basic needs resources through education, partnerships, and community engagement.
+  <section
+    id="hero"
+    class="hero"
+    style="
+      background-image:
+        linear-gradient(rgba(58, 74, 56, 0.85), rgba(42, 53, 40, 0.90)),
+        url('https://placehold.co/1600x900/3a4a38/e8e1d1?text=Women+Veterans+Advocacy');
+    "
+  >
+    <div class="inner reveal">
+      <h1>MISNS Advocacy &amp; Ambassador Program</h1>
+      <p class="lead">Survivor-centered outreach. System-level change. Real support for servicewomen.</p>
+      <p class="desc">
+        We raise awareness of moral injury among women veterans and strengthen access to mental health support + basic needs resources
+        through education, partnerships, and community engagement.
       </p>
-      <div class="btn-row reveal">
-        <a class="btn primary" href="#ambassador">Become an Ambassador</a>
-        <a class="btn secondary" href="#contact">Refer a Servicewoman</a>
+
+      <div class="actions">
+        <a class="pill primary" href="#ambassador">Become an Ambassador</a>
+        <a class="pill" style="background:#8a9b88;color:#fff;" href="#contact">Refer a Servicewoman</a>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="bg2">
+  <section id="about" class="bg-muted">
     <div class="container">
-      <h2 class="reveal">About the Program</h2>
+      <div class="reveal">
+        <h2 class="title">About the Program</h2>
+        <p class="subtitle">
+          The MISNS Advocacy &amp; Ambassador Program advances the mission of the Moral Injury Support Network for Servicewomen (MISNS)
+          by raising awareness of moral injury and improving how systems respond to women veterans experiencing it.
+        </p>
 
-      <div class="card p32 reveal" style="max-width: 980px; margin: 0 auto;">
-        <p class="muted" style="font-size: 18px; margin-top:0;">
-          The MISNS Advocacy &amp; Ambassador Program advances the mission of the Moral Injury Support Network for Servicewomen (MISNS) by raising awareness of moral injury and improving how systems respond to women veterans experiencing it.
-        </p>
-        <p class="muted" style="font-size: 18px;">
-          Our advocacy is educational, relationship-driven, and survivor-centered—not confrontational or political lobbying. We combine lived experience, service outcomes, and real community needs to influence policies, procedures, and access pathways across nonprofit, government, and corporate systems.
-        </p>
-        <p style="font-size:18px; font-weight:800; color: var(--sage); margin-bottom:0;">
-          Program Owner: <span id="programOwner"></span>
-        </p>
+        <div class="card">
+          <p class="mb16">
+            Our advocacy is educational, relationship-driven, and survivor-centered—not confrontational or political lobbying.
+            We combine lived experience, service outcomes, and real community needs to influence policies, procedures, and access pathways
+            across nonprofit, government, and corporate systems.
+          </p>
+          <p class="mb0" style="font-weight:900;color:var(--sage);">
+            Program Owner: <span id="programOwnerText"></span>
+          </p>
+        </div>
       </div>
 
-      <div id="approach" style="margin-top: 44px;">
-        <h3 class="reveal" style="text-align:center;">Our Approach</h3>
-        <div class="grid grid-3" id="approachGrid"></div>
+      <!-- Approach -->
+      <div id="approach" class="mt40 reveal">
+        <h3 class="h3 center">Our Approach</h3>
+        <div class="grid grid-3 mt20" id="approachGrid"></div>
       </div>
 
-      <div style="margin-top: 56px;">
-        <h3 class="reveal" style="text-align:center;">Why Moral Injury Matters</h3>
-        <p class="section-lead reveal">Moral injury can affect how servicewomen experience:</p>
-        <div class="grid grid-4" id="whyGrid"></div>
-        <p class="reveal" style="margin: 28px auto 0; max-width: 860px; text-align:center; font-style: italic; color:#374151; font-size:18px;">
+      <!-- Why Moral Injury Matters -->
+      <div class="mt40 reveal">
+        <h3 class="h3 center">Why Moral Injury Matters</h3>
+        <p class="subtitle">Moral injury can affect how servicewomen experience:</p>
+        <div class="grid grid-4 mt20" id="whyMattersGrid"></div>
+
+        <p class="subtitle mt30" style="font-style: italic;">
           MISNS is committed to making support more accessible, trauma-informed, and inclusive.
         </p>
       </div>
 
-      <div class="card p32 reveal" style="max-width: 980px; margin: 56px auto 0;">
-        <h3 style="text-align:center; margin-top:0;">Program Goal</h3>
-        <p class="section-lead" style="margin-bottom:18px;">
-          To increase awareness of moral injury among women veterans and influence systems (nonprofit, government, and private sector) to improve access to mental health support and basic needs resources for servicewomen.
-        </p>
+      <!-- Goal & Objectives -->
+      <div class="mt40 reveal">
+        <div class="card round2 shadow">
+          <h3 class="h3 center">Program Goal</h3>
+          <p class="subtitle mb24">
+            To increase awareness of moral injury among women veterans and influence systems (nonprofit, government, and private sector)
+            to improve access to mental health support and basic needs resources for servicewomen.
+          </p>
 
-        <h4 style="text-align:center; margin-top: 18px;">Advocacy Objectives</h4>
-        <ul class="list" id="objectivesList" style="max-width: 820px; margin: 12px auto 0;"></ul>
+          <h4 class="h4 center">Advocacy Objectives</h4>
+          <ul class="list mt12" id="objectivesList"></ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Audiences -->
-  <section id="audiences" class="bgW">
+  <section id="audiences" class="bg-white">
     <div class="container">
-      <h2 class="reveal">Who We Serve and Engage</h2>
-      <p class="section-lead reveal">
-        Our advocacy focuses on four key audiences to create systemic change and expand support networks for women veterans.
-      </p>
-
-      <div class="grid grid-4" id="audiencesGrid"></div>
-    </div>
-  </section>
-
-  <!-- What Ambassadors Do -->
-  <section id="what-ambassadors-do" class="bg2">
-    <div class="container">
-      <h2 class="reveal">What Ambassadors Do</h2>
-      <p class="section-lead reveal">
-        Ambassadors drive awareness, build community connections, and help women veterans access critical resources through these key activities.
-      </p>
-
-      <div class="card p32 reveal" style="max-width: 980px; margin: 0 auto;">
-        <ul class="list" id="ambassadorActivitiesList"></ul>
+      <div class="reveal">
+        <h2 class="title">Who We Serve and Engage</h2>
+        <p class="subtitle">
+          Our advocacy focuses on four key audiences to create systemic change and expand support networks for women veterans.
+        </p>
+        <div class="grid grid-4 mt20" id="audiencesGrid"></div>
       </div>
     </div>
   </section>
 
-  <!-- Become an Ambassador -->
-  <section id="ambassador" class="bgW">
+  <!-- What Ambassadors Do -->
+  <section id="what-ambassadors-do" class="bg-muted">
     <div class="container">
-      <h2 class="reveal">Become a Volunteer Ambassador</h2>
-      <p class="section-lead reveal">
-        Represent MISNS in the community and support outreach efforts using trauma-informed, survivor-centered approaches.
-      </p>
+      <div class="reveal">
+        <h2 class="title">What Ambassadors Do</h2>
+        <p class="subtitle">
+          Ambassadors drive awareness, build community connections, and help women veterans access critical resources through these key activities.
+        </p>
 
-      <div class="grid grid-2" style="max-width: 1140px; margin: 0 auto;">
-        <!-- Left column -->
-        <div class="reveal">
-          <h3><span style="margin-right:10px;">🌟</span>Ambassador Role Overview</h3>
-          <p class="muted">
-            Volunteer Ambassadors represent MISNS in the community and support outreach and awareness efforts using MISNS-approved messaging and materials.
-          </p>
-          <p class="muted">This is a flexible, volunteer role designed to fit around your schedule while making a meaningful impact.</p>
-
-          <h4>Who can apply</h4>
-          <ul class="list" id="whoCanApply"></ul>
-
-          <h4 style="margin-top: 18px;">What Ambassadors Do</h4>
-          <ul class="list" id="ambassadorResponsibilities"></ul>
-
-          <div class="card p24" style="background: var(--bg2); margin-top: 16px;">
-            <strong style="color: var(--olive);">Important:</strong>
-            <div>Documentation is done only with consent.</div>
-          </div>
-
-          <h4 style="margin-top: 18px;">Trauma-Informed Training Provided</h4>
-          <ul class="list" id="ambassadorTraining"></ul>
+        <div class="card round2">
+          <ul class="list" id="ambassadorActivitiesList"></ul>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Right column -->
-        <div class="reveal">
-          <h3><span style="margin-right:10px;">📅</span>Monthly Ambassador Targets</h3>
-          <div class="card p24" style="background: var(--bg2);">
-            <ul class="list" id="monthlyTargets"></ul>
+  <!-- Why Ambassador -->
+  <section id="why-ambassador" class="bg-white">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="title">Why Become an Ambassador?</h2>
+        <p class="subtitle">
+          Becoming an Ambassador offers women veterans a meaningful opportunity to give back while growing personally and professionally.
+        </p>
+        <div class="grid grid-3 mt20" id="whyAmbassadorGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ambassador -->
+  <section id="ambassador" class="bg-muted">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="title">Become a Volunteer Ambassador</h2>
+        <p class="subtitle">
+          Represent MISNS in the community and support outreach efforts using trauma-informed, survivor-centered approaches.
+        </p>
+
+        <div class="grid grid-2 mt20">
+          <!-- Left -->
+          <div class="card round2">
+            <h3 class="h3 mb8">🌟 Ambassador Role Overview</h3>
+            <p class="mb16">
+              Volunteer Ambassadors represent MISNS in the community and support outreach and awareness efforts using MISNS-approved messaging and materials.
+            </p>
+            <p class="mb24">
+              This is a flexible, volunteer role designed to fit around your schedule while making a meaningful impact.
+            </p>
+
+            <h4 class="h4">Who can apply</h4>
+            <ul class="list mb24">
+              <li class="li"><span class="check">✓</span><span>Women veterans only OR individuals already connected with MISNS</span></li>
+              <li class="li"><span class="check">✓</span><span>Comfortable with outreach, education, and supportive conversations</span></li>
+              <li class="li"><span class="check">✓</span><span>Willing to use trauma-informed and survivor-centered communication</span></li>
+            </ul>
+
+            <h4 class="h4">What Ambassadors Do</h4>
+            <ul class="list mb24" id="ambassadorResponsibilitiesList"></ul>
+
+            <div class="mutebox mb24">
+              <div style="font-weight:900;color:var(--olive);" class="mb8">Important:</div>
+              <div>Documentation is done only with consent.</div>
+            </div>
+
+            <h4 class="h4">Trauma-Informed Training Provided</h4>
+            <ul class="list" id="ambassadorTrainingList"></ul>
           </div>
 
-          <h3 style="margin-top: 18px;"><span style="margin-right:10px;">💬</span>What We Discuss in Monthly Check-ins</h3>
-          <div class="card p24">
-            <ul class="list" id="monthlyCheckins"></ul>
-          </div>
+          <!-- Right -->
+          <div class="card round2">
+            <h3 class="h3 mb16">📅 Monthly Ambassador Targets</h3>
+            <div class="mutebox mb24">
+              <ul class="list">
+                <li class="li"><span style="font-weight:900;color:var(--olive);">1</span><span>Attend 1 veteran/community event</span></li>
+                <li class="li"><span style="font-weight:900;color:var(--olive);">5-10</span><span>Conduct outreach conversations</span></li>
+                <li class="li"><span style="font-weight:900;color:var(--olive);">1-3</span><span>Encourage women veterans to connect with MISNS</span></li>
+                <li class="li"><span style="font-weight:900;color:var(--olive);">2+</span><span>Share MISNS posts on social media</span></li>
+                <li class="li"><span style="font-weight:900;color:var(--olive);">✓</span><span>Submit monthly activity updates</span></li>
+              </ul>
+            </div>
 
-          <div style="text-align:center; margin-top: 18px;">
-            <button class="btn primary" id="applyBtn" type="button">Apply to Become an Ambassador</button>
+            <h3 class="h3 mb16">💬 What We Discuss in Monthly Check-ins</h3>
+            <div class="card" style="box-shadow:none;border:1px solid var(--sand);">
+              <ul class="list">
+                <li class="li"><span class="check">✓</span><span>Wins and success stories</span></li>
+                <li class="li"><span class="check">✓</span><span>Challenges and barriers</span></li>
+                <li class="li"><span class="check">✓</span><span>Emotional check-in and support needs</span></li>
+                <li class="li"><span class="check">✓</span><span>Referral outcomes and community feedback</span></li>
+              </ul>
+            </div>
+
+            <div class="center mt30">
+              <button class="pill primary" type="button" id="applyBtn">Apply to Become an Ambassador</button>
+            </div>
           </div>
         </div>
       </div>
@@ -515,122 +572,128 @@
   </section>
 
   <!-- Process -->
-  <section id="process" class="bgW">
+  <section id="process" class="bg-white">
     <div class="container">
-      <h2 class="reveal">Our Implementation Process</h2>
-      <p class="section-lead reveal">Structured approach to program launch, tracking, and continuous improvement.</p>
+      <div class="reveal">
+        <h2 class="title">Our Implementation Process</h2>
+        <p class="subtitle">Structured approach to program launch, tracking, and continuous improvement.</p>
 
-      <div style="max-width: 1140px; margin: 0 auto;">
-        <h3 class="reveal" style="text-align:center;">Implementation Timeline</h3>
-        <div class="grid grid-3" id="timelineGrid"></div>
+        <h3 class="h3 center mt30">Implementation Timeline</h3>
+        <div class="grid grid-3 mt20" id="timelineGrid"></div>
 
-        <div class="grid grid-2" style="margin-top: 22px;">
+        <div class="grid grid-2 mt40">
           <div class="reveal">
-            <h3><span style="margin-right:10px;">📊</span>Tracking and Accountability</h3>
-            <p class="muted">Program leadership tracks outcomes through documentation, including:</p>
-            <div class="card p24" style="background: var(--bg2);">
-              <ul class="list" id="trackingMetrics"></ul>
+            <h3 class="h3">📊 Tracking and Accountability</h3>
+            <p>Program leadership tracks outcomes through documentation, including:</p>
+            <div class="mutebox">
+              <ul class="list" id="trackingList"></ul>
             </div>
           </div>
 
           <div class="reveal">
-            <h3><span style="margin-right:10px;">🔄</span>Monthly Review Process</h3>
-            <p class="muted">Each month, MISNS reviews:</p>
-            <div class="card p24" style="background: var(--bg2);">
-              <ul class="list" id="monthlyReview"></ul>
+            <h3 class="h3">🔄 Monthly Review Process</h3>
+            <p>Each month, MISNS reviews:</p>
+            <div class="mutebox">
+              <ul class="list">
+                <li class="li"><span class="check">✓</span><span>Ambassador engagement and well-being</span></li>
+                <li class="li"><span class="check">✓</span><span>Advocacy activities completed</span></li>
+                <li class="li"><span class="check">✓</span><span>Referral outcomes and trends</span></li>
+                <li class="li"><span class="check">✓</span><span>Partnership progress and opportunities</span></li>
+                <li class="li"><span class="check">✓</span><span>Improvements needed in materials or training</span></li>
+              </ul>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section id="cta" class="cta">
+  <section id="cta" style="background: var(--olive);">
     <div class="container">
-      <h2 class="reveal">Ready to Make a Difference?</h2>
-      <p class="section-lead reveal">
-        Join our community of ambassadors dedicated to creating meaningful change for women veterans experiencing moral injury.
-      </p>
-
-      <div class="cta-box reveal">
-        <div class="big">🌟</div>
-        <h3 style="color:#fff; margin-top:0;">Become a Volunteer Ambassador</h3>
-        <p style="color: var(--cream2); font-size: 18px;">
-          Flexible, meaningful, community-driven outreach that makes a real impact in the lives of women veterans.
+      <div class="reveal center">
+        <h2 style="color:var(--muted);margin:0 0 10px;font-size:clamp(26px,3.2vw,42px);font-weight:900;">
+          Ready to Make a Difference?
+        </h2>
+        <p style="color:var(--sand);font-size:20px;max-width:860px;margin:0 auto 26px;">
+          Join our community of ambassadors dedicated to creating meaningful change for women veterans experiencing moral injury.
         </p>
-        <a class="btn white" href="#ambassador">Apply Now</a>
+
+        <div class="card round2 shadow" style="max-width:820px;margin:0 auto;background: var(--sage); color:#fff; border:0;">
+          <div class="icon">🌟</div>
+          <div style="font-size:24px;font-weight:900;margin-bottom:8px;">Become a Volunteer Ambassador</div>
+          <div style="color:var(--sand);font-size:18px;margin-bottom:18px;">
+            Flexible, meaningful, community-driven outreach that makes a real impact in the lives of women veterans.
+          </div>
+          <button class="pill secondary" type="button" id="applyNowBtn">Apply Now</button>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="bgW">
+  <section id="contact" class="bg-white">
     <div class="container">
-      <h2 class="reveal">Contact Us</h2>
-      <p class="section-lead reveal">
-        Reach out to learn more about the Advocacy &amp; Ambassador Program or to refer a servicewoman.
-      </p>
+      <div class="reveal">
+        <h2 class="title">Contact Us</h2>
+        <p class="subtitle">
+          Reach out to learn more about the Advocacy &amp; Ambassador Program or to refer a servicewoman.
+        </p>
 
-      <div class="grid grid-2" style="max-width: 1140px; margin: 0 auto;">
-        <!-- Form -->
-        <div class="reveal">
-          <form id="contactForm" class="card p32">
-            <div style="margin-bottom:14px;">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" required />
-            </div>
-            <div style="margin-bottom:14px;">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-            <div style="margin-bottom:16px;">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button class="btn-full" type="submit">Send Message</button>
-          </form>
-        </div>
-
-        <!-- Info -->
-        <div class="reveal">
-          <div class="card p32" style="background: var(--bg); border: 1px solid var(--cream2);">
-            <h3 style="margin-top:0;">Get in Touch</h3>
-
-            <div style="display:flex; flex-direction:column; gap: 16px; margin-bottom: 20px;">
-              <div>
-                <h4>✉️ Email</h4>
-                <div class="muted">advocacy@misns.org</div>
+        <div class="grid grid-2 mt20">
+          <!-- Form -->
+          <div class="card round2">
+            <form id="contactForm">
+              <div class="mb16">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
               </div>
-              <div>
-                <h4>📞 Phone</h4>
-                <div class="muted">(555) 789-1234</div>
+
+              <div class="mb16">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
               </div>
-              <div>
-                <h4>📍 Address</h4>
-                <div class="muted">123 Hope Avenue, Washington, DC 20001</div>
+
+              <div class="mb16">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
               </div>
+
+              <button class="pill dark" type="submit" style="width:100%;">Send Message</button>
+            </form>
+          </div>
+
+          <!-- Info -->
+          <div class="card round2" style="background: var(--bg);">
+            <h3 class="h3 mb16">Get in Touch</h3>
+
+            <div class="mb24">
+              <div class="h4" style="margin-top:0;">✉️ Email</div>
+              <div>droberts@chaplainconsultants.com</div>
+
+              <div class="h4">📞 Phone</div>
+              <div>910-690-5964</div>
             </div>
 
-            <div style="margin: 18px 0;">
-              <h4 style="text-align:center;">Follow Our Advocacy Work</h4>
-              <div class="social" aria-label="Social links">
-                <a href="#" title="Facebook" aria-label="Facebook">f</a>
-                <a href="#" title="Twitter/X" aria-label="Twitter/X">t</a>
-                <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
-                <a href="#" title="Instagram" aria-label="Instagram">ig</a>
+            <div class="mb24">
+              <div class="h4">Follow Our Advocacy Work</div>
+              <div style="display:flex;gap:18px;justify-content:center;font-size:22px;">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Twitter">t</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="Instagram">ig</a>
               </div>
             </div>
 
-            <div class="pill">
-              <div style="font-weight:900; color: var(--olive);">Referring a servicewoman in need?</div>
-              <div class="muted" style="margin-top:6px;">
-                Use our secure referral form to connect her with MISNS support services.
-              </div>
-              <button type="button" id="referralBtn">Secure Referral Form</button>
+            <div class="mutebox center" style="background: var(--sand);">
+              <div style="font-weight:900;color:var(--olive);">Referring a servicewoman in need?</div>
+              <div class="mt12">Use our secure referral form to connect her with MISNS support services.</div>
+              <button class="pill primary mt20" type="button" id="referralBtn">Secure Referral Form</button>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -638,57 +701,59 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
+      <div class="footgrid">
         <div>
-          <div style="font-size: 24px; font-weight: 900; margin-bottom: 10px;">MISNS</div>
-          <div style="color: var(--cream2);">
+          <div style="font-size:22px;font-weight:900;margin-bottom:10px;">MISNS</div>
+          <p>
             The Moral Injury Support Network for Servicewomen provides critical resources and community for women veterans healing from moral injury and trauma.
-          </div>
-          <div style="display:flex; gap: 12px; margin-top: 14px;">
-            <a href="#" aria-label="Facebook">FB</a>
-            <a href="#" aria-label="Twitter/X">TW</a>
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="LinkedIn">LI</a>
+          </p>
+          <div style="display:flex;gap:14px;margin-top:10px;">
+            <a href="#">FB</a><a href="#">TW</a><a href="#">IG</a><a href="#">LI</a>
           </div>
         </div>
 
         <div>
           <h4>Quick Links</h4>
-          <ul class="foot-links" id="footerQuickLinks"></ul>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="#hero">Home</a>
+            <a href="#about">About the Program</a>
+            <a href="#ambassador">Become an Ambassador</a>
+            <a href="#contact">Contact</a>
+          </div>
         </div>
 
         <div>
           <h4>Program Focus</h4>
-          <ul class="foot-links" id="footerFocusLinks"></ul>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="#approach">Our Approach</a>
+            <a href="#audiences">Who We Serve</a>
+            <a href="#what-ambassadors-do">Ambassador Activities</a>
+            <a href="#process">Implementation Process</a>
+          </div>
         </div>
 
         <div>
           <h4>Newsletter</h4>
-          <div style="color: var(--cream2); margin-bottom: 10px;">
-            Stay updated on advocacy efforts and ambassador opportunities.
-          </div>
-          <form id="newsletterForm" style="display:flex; gap: 8px; flex-wrap: wrap;">
-            <input id="newsletterEmail" type="email" placeholder="Your email address" required style="flex:1; min-width: 200px;">
-            <button type="submit" style="border:none; cursor:pointer; background: var(--sage); color:#fff; padding: 10px 14px; border-radius: 12px; font-weight: 900;">
-              Subscribe
-            </button>
+          <p>Stay updated on advocacy efforts and ambassador opportunities.</p>
+
+          <form id="newsletterForm" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+            <input id="newsletterEmail" type="email" placeholder="Your email address" required style="flex:1;min-width:220px;" />
+            <button class="pill primary" type="submit" style="box-shadow:none;">Subscribe</button>
           </form>
         </div>
       </div>
 
-      <div class="hr">
+      <div class="footline">
         <div>© <span id="year"></span> Moral Injury Support Network for Servicewomen (MISNS). All rights reserved.</div>
-        <div style="margin-top:6px;">MISNS Advocacy &amp; Ambassador Program: Building systems of support for women veterans</div>
-        <div style="margin-top:6px; font-weight: 900;">Program Owner: <span id="programOwnerFooter"></span></div>
+        <div class="mt12">MISNS Advocacy &amp; Ambassador Program: Building systems of support for women veterans</div>
+        <div class="mt12" style="font-weight:900;">Program Owner: <span id="programOwnerFoot"></span></div>
       </div>
     </div>
   </footer>
 
   <script>
-    // -----------------------------
-    // DATA (from your React arrays)
-    // -----------------------------
-    const programOwner = "Dr. Daniel Dobert";
+    // ===== Data (from your React version) =====
+    const programOwner = "Dr. Daniel Roberts";
 
     const navItems = [
       { name: "Home", href: "#hero" },
@@ -720,9 +785,9 @@
 
     const audiences = [
       { icon: "👩‍✈️", title: "Women Veterans", description: "Increase understanding of moral injury, encourage help-seeking, reduce isolation and stigma" },
-      { icon: "🏢", title: "Veteran-Serving Nonprofits", description: "Promote inclusive eligibility, encourage women-focused funding, strengthen referral partnerships" },
+      { icon: "🤝", title: "Veteran-Serving Nonprofits", description: "Promote inclusive eligibility, encourage women-focused funding, strengthen referral partnerships" },
       { icon: "🏛️", title: "Government Organizations", description: "Advocate for funding, promote recognition of moral injury, reduce administrative barriers" },
-      { icon: "🤝", title: "Corporate Partners", description: "Encourage sponsorships, build partnerships for resources, promote measurable CSR impact" }
+      { icon: "💼", title: "Corporate Partners", description: "Encourage sponsorships, build partnerships for resources, promote measurable CSR impact" }
     ];
 
     const ambassadorActivities = [
@@ -732,12 +797,6 @@
       "Share at least 2 MISNS posts monthly",
       "Submit monthly activity updates",
       "Participate in monthly check-ins with program leadership"
-    ];
-
-    const whoCanApply = [
-      "Women veterans only OR individuals already connected with MISNS",
-      "Comfortable with outreach, education, and supportive conversations",
-      "Willing to use trauma-informed and survivor-centered communication"
     ];
 
     const ambassadorResponsibilities = [
@@ -756,6 +815,15 @@
       "Referral pathways + FAQ for partners"
     ];
 
+    const whyAmbassador = [
+      { icon: "💪", title: "Empowerment & Healing", description: "Turn lived experiences into purpose-driven advocacy, building confidence and connection along the way." },
+      { icon: "🤝", title: "Community & Support", description: "Join a strong network of women veterans, mentors, healthcare professionals, and community leaders." },
+      { icon: "📈", title: "Leadership & Skill Building", description: "Gain hands-on experience in advocacy, public speaking, outreach, and program coordination." },
+      { icon: "💼", title: "Career Growth", description: "Strengthen your resume with leadership experience, training, and professional development opportunities." },
+      { icon: "🌍", title: "Real Impact", description: "Help raise awareness, connect veterans to resources, and improve outcomes for women veterans nationwide." },
+      { icon: "🏆", title: "Recognition & Opportunities", description: "Receive certificates, leadership roles, and access to special events, trainings, and campaigns." }
+    ];
+
     const timelineItems = [
       { period: "January", activities: ["Finalize materials, agreements, and recruitment", "Complete trauma-informed ambassador training content"] },
       { period: "February", activities: ["Ambassador onboarding and soft launch", "Begin community outreach activities"] },
@@ -770,230 +838,178 @@
       "Stakeholder contacts established"
     ];
 
-    const monthlyReview = [
-      "Ambassador engagement and well-being",
-      "Advocacy activities completed",
-      "Referral outcomes and trends",
-      "Partnership progress and opportunities",
-      "Improvements needed in materials or training"
-    ];
-
-    const monthlyTargets = [
-      { label: "1", text: "Attend 1 veteran/community event" },
-      { label: "5-10", text: "Conduct outreach conversations" },
-      { label: "1-3", text: "Encourage women veterans to connect with MISNS" },
-      { label: "2+", text: "Share MISNS posts on social media" },
-      { label: "✓", text: "Submit monthly activity updates" }
-    ];
-
-    const monthlyCheckins = [
-      "Wins and success stories",
-      "Challenges and barriers",
-      "Emotional check-in and support needs",
-      "Referral outcomes and community feedback"
-    ];
-
-    // -----------------------------
-    // RENDER HELPERS
-    // -----------------------------
-    const el = (tag, attrs = {}, children = []) => {
+    // ===== DOM helpers =====
+    const el = (tag, attrs={}, children=[]) => {
       const node = document.createElement(tag);
       Object.entries(attrs).forEach(([k,v]) => {
-        if (k === "class") node.className = v;
-        else if (k === "html") node.innerHTML = v;
+        if(k === "class") node.className = v;
+        else if(k === "html") node.innerHTML = v;
         else node.setAttribute(k, v);
       });
-      (Array.isArray(children) ? children : [children]).forEach(c => {
-        if (c === null || c === undefined) return;
-        node.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+      (Array.isArray(children) ? children : [children]).forEach(child => {
+        if(child == null) return;
+        node.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
       });
       return node;
     };
 
-    const renderNav = (ulId) => {
-      const ul = document.getElementById(ulId);
-      ul.innerHTML = "";
+    function fillNav(listEl){
+      listEl.innerHTML = "";
       navItems.forEach(item => {
-        ul.appendChild(el("li", {}, [
-          el("a", { href: item.href }, item.name)
-        ]));
+        const a = el("a", { href: item.href }, item.name);
+        a.addEventListener("click", () => closeMobileMenu());
+        listEl.appendChild(el("li", {}, a));
       });
-    };
+    }
 
-    const renderCards = (containerId, items) => {
-      const wrap = document.getElementById(containerId);
-      wrap.innerHTML = "";
+    function fillCards(gridEl, items, variant){
+      gridEl.innerHTML = "";
       items.forEach(it => {
-        const card = el("div", { class: "card p24 reveal" }, [
-          el("div", { class: "icon" }, it.icon),
-          el("h4", {}, it.title),
-          el("div", { class: "muted" }, it.description)
-        ]);
-        wrap.appendChild(card);
+        const cardClass = variant === "audience"
+          ? "card round2 shadow"
+          : "card";
+        const wrap = el("div", { class: cardClass });
+        wrap.appendChild(el("div", { class: "icon" }, it.icon));
+        wrap.appendChild(el("div", { class: "h3", style: "font-size:20px;margin:0 0 8px;" }, it.title));
+        wrap.appendChild(el("div", {}, it.description));
+        gridEl.appendChild(wrap);
       });
-    };
+    }
 
-    const renderAudienceCards = () => {
-      const wrap = document.getElementById("audiencesGrid");
-      wrap.innerHTML = "";
-      audiences.forEach(a => {
-        wrap.appendChild(el("div", { class: "card p32 reveal", style: "background: var(--bg); text-align:center;" }, [
-          el("div", { class: "icon" }, a.icon),
-          el("h4", {}, a.title),
-          el("div", { class: "muted" }, a.description)
-        ]));
+    function fillWhyMatters(gridEl, items){
+      gridEl.innerHTML = "";
+      items.forEach(it => {
+        const wrap = el("div", { class: "card", style:"text-align:center;box-shadow:0 8px 16px rgba(0,0,0,.08);" });
+        wrap.appendChild(el("div", { class: "icon", style:"font-size:32px;" }, it.icon));
+        wrap.appendChild(el("div", { style:"font-weight:900;color:var(--olive);margin-bottom:6px;" }, it.title));
+        wrap.appendChild(el("div", { style:"font-size:14px;color:#4a4a4a;" }, it.description));
+        gridEl.appendChild(wrap);
       });
-    };
+    }
 
-    const renderList = (ulId, items, marker="✓") => {
-      const ul = document.getElementById(ulId);
-      ul.innerHTML = "";
+    function fillList(listEl, items, bullet="check"){
+      listEl.innerHTML = "";
       items.forEach(t => {
-        ul.appendChild(el("li", { class: "li" }, [
-          el("span", { class: marker === "•" ? "dot" : "tick" }, marker),
-          el("span", { class: "muted", style:"font-size: 17px;" }, t)
-        ]));
+        const icon = bullet === "dot" ? "•" : "✓";
+        const cls = bullet === "dot" ? "dot" : "check";
+        listEl.appendChild(
+          el("li", { class: "li" }, [
+            el("span", { class: cls }, icon),
+            el("span", {}, t)
+          ])
+        );
       });
-    };
+    }
 
-    const renderTimeline = () => {
-      const wrap = document.getElementById("timelineGrid");
-      wrap.innerHTML = "";
-      timelineItems.forEach(t => {
-        const ul = el("ul", { class: "list" });
-        t.activities.forEach(a => ul.appendChild(el("li", { class:"li" }, [
-          el("span", { class:"dot" }, "•"),
-          el("span", {}, a)
-        ])));
-        wrap.appendChild(el("div", { class: "card p24 reveal", style:"background: var(--bg2);" }, [
-          el("div", { style:"font-size: 22px; font-weight: 900; color: var(--sage); margin-bottom: 10px;" }, t.period),
-          ul
-        ]));
+    function fillTimeline(gridEl, items){
+      gridEl.innerHTML = "";
+      items.forEach(it => {
+        const box = el("div", { class:"card", style:"background:var(--muted);" });
+        box.appendChild(el("div", { style:"font-weight:900;color:var(--sage);font-size:22px;margin-bottom:10px;" }, it.period));
+        const ul = el("ul", { class:"list" });
+        it.activities.forEach(a => {
+          ul.appendChild(el("li", { class:"li" }, [
+            el("span", { class:"dot" }, "•"),
+            el("span", {}, a)
+          ]));
+        });
+        box.appendChild(ul);
+        gridEl.appendChild(box);
       });
-    };
+    }
 
-    const renderTargets = () => {
-      const ul = document.getElementById("monthlyTargets");
-      ul.innerHTML = "";
-      monthlyTargets.forEach(t => {
-        ul.appendChild(el("li", { class:"li" }, [
-          el("span", { style:"min-width:40px; font-weight:900; color: var(--olive);" }, t.label),
-          el("span", {}, t.text)
-        ]));
-      });
-    };
-
-    // -----------------------------
-    // INIT
-    // -----------------------------
-    document.getElementById("programOwner").textContent = programOwner;
-    document.getElementById("programOwnerFooter").textContent = programOwner;
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    renderNav("desktopNav");
-    renderNav("mobileNav");
-
-    // Footer links
-    const footerQuick = [
-      { name: "Home", href: "#hero" },
-      { name: "About the Program", href: "#about" },
-      { name: "Become an Ambassador", href: "#ambassador" },
-      { name: "Contact", href: "#contact" }
-    ];
-    const footerFocus = [
-      { name: "Our Approach", href: "#approach" },
-      { name: "Who We Serve", href: "#audiences" },
-      { name: "Ambassador Activities", href: "#what-ambassadors-do" },
-      { name: "Implementation Process", href: "#process" }
-    ];
-    const q1 = document.getElementById("footerQuickLinks");
-    footerQuick.forEach(l => q1.appendChild(el("li", {}, el("a", { href:l.href }, l.name))));
-    const q2 = document.getElementById("footerFocusLinks");
-    footerFocus.forEach(l => q2.appendChild(el("li", {}, el("a", { href:l.href }, l.name))));
-
-    // Cards + lists
-    renderCards("approachGrid", approachItems);
-    renderCards("whyGrid", whyMattersItems);
-    renderAudienceCards();
-    renderList("objectivesList", objectives, "✓");
-    renderList("ambassadorActivitiesList", ambassadorActivities, "•");
-    renderList("whoCanApply", whoCanApply, "✓");
-    renderList("ambassadorResponsibilities", ambassadorResponsibilities, "✓");
-    renderList("ambassadorTraining", ambassadorTraining, "✓");
-    renderTargets();
-    renderList("monthlyCheckins", monthlyCheckins, "✓");
-    renderList("trackingMetrics", trackingMetrics, "✓");
-    renderList("monthlyReview", monthlyReview, "✓");
-    renderTimeline();
-
-    // -----------------------------
-    // UI BEHAVIOR
-    // -----------------------------
-    // Header scroll style
+    // ===== Header scroll behavior =====
     const header = document.getElementById("siteHeader");
     const onScroll = () => {
-      if (window.scrollY > 50) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
+      header.classList.toggle("scrolled", window.scrollY > 50);
     };
-    window.addEventListener("scroll", onScroll);
-    onScroll();
 
-    // Mobile menu toggle
+    // ===== Mobile menu =====
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    let menuOpen = false;
-
-    const closeMenu = () => {
-      menuOpen = false;
+    function openMobileMenu(){
+      mobileMenu.classList.add("open");
+      menuBtn.textContent = "✕";
+      menuBtn.setAttribute("aria-expanded", "true");
+    }
+    function closeMobileMenu(){
       mobileMenu.classList.remove("open");
       menuBtn.textContent = "☰";
-    };
-    const toggleMenu = () => {
-      menuOpen = !menuOpen;
-      mobileMenu.classList.toggle("open", menuOpen);
-      menuBtn.textContent = menuOpen ? "✕" : "☰";
-    };
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+    function toggleMobileMenu(){
+      mobileMenu.classList.contains("open") ? closeMobileMenu() : openMobileMenu();
+    }
 
-    menuBtn.addEventListener("click", toggleMenu);
-    document.getElementById("mobileNav").addEventListener("click", (e) => {
-      if (e.target.tagName === "A") closeMenu();
-    });
-    document.getElementById("desktopNav").addEventListener("click", (e) => {
-      if (e.target.tagName === "A") closeMenu();
-    });
+    // ===== Reveal on scroll (replaces Framer Motion whileInView) =====
+    function setupReveal(){
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            e.target.classList.add("visible");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      els.forEach(x => io.observe(x));
+    }
 
-    // Contact form
-    document.getElementById("contactForm").addEventListener("submit", (e) => {
+    // ===== Forms =====
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
       alert("Thank you for your message! We will contact you shortly.");
-      e.target.reset();
+      contactForm.reset();
     });
 
-    // Newsletter
-    document.getElementById("newsletterForm").addEventListener("submit", (e) => {
+    const newsletterForm = document.getElementById("newsletterForm");
+    const newsletterEmail = document.getElementById("newsletterEmail");
+    newsletterForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const email = document.getElementById("newsletterEmail").value.trim();
-      alert(`Thank you for subscribing with ${email}!`);
-      e.target.reset();
+      alert(`Thank you for subscribing with ${newsletterEmail.value}!`);
+      newsletterForm.reset();
     });
 
-    // Buttons
+    // ===== Buttons =====
     document.getElementById("applyBtn").addEventListener("click", () => {
-      alert("Thanks for your interest! Add your application link here (Google Form / Typeform / etc.).");
+      alert("Thanks for your interest! Connect this button to your application form link.");
+    });
+    document.getElementById("applyNowBtn").addEventListener("click", () => {
+      alert("Thanks for your interest! Connect this button to your application form link.");
     });
     document.getElementById("referralBtn").addEventListener("click", () => {
-      alert("Add your secure referral form link here (Unite Us / NCCARE360 / Google Form).");
+      alert("Connect this button to your secure referral form link.");
     });
 
-    // Reveal on scroll (Framer Motion replacement)
-    const revealEls = () => document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.12 });
+    // ===== Init =====
+    document.getElementById("programOwnerText").textContent = programOwner;
+    document.getElementById("programOwnerFoot").textContent = programOwner;
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    revealEls().forEach(el => io.observe(el));
+    fillNav(document.getElementById("desktopNav"));
+    fillNav(document.getElementById("mobileNav"));
+
+    fillCards(document.getElementById("approachGrid"), approachItems);
+    fillWhyMatters(document.getElementById("whyMattersGrid"), whyMattersItems);
+    fillList(document.getElementById("objectivesList"), objectives, "check");
+
+    fillCards(document.getElementById("audiencesGrid"), audiences, "audience");
+    fillList(document.getElementById("ambassadorActivitiesList"), ambassadorActivities, "dot");
+
+    fillCards(document.getElementById("whyAmbassadorGrid"), whyAmbassador);
+
+    fillList(document.getElementById("ambassadorResponsibilitiesList"), ambassadorResponsibilities, "check");
+    fillList(document.getElementById("ambassadorTrainingList"), ambassadorTraining, "check");
+
+    fillTimeline(document.getElementById("timelineGrid"), timelineItems);
+    fillList(document.getElementById("trackingList"), trackingMetrics, "check");
+
+    window.addEventListener("scroll", onScroll);
+    menuBtn.addEventListener("click", toggleMobileMenu);
+
+    setupReveal();
+    onScroll(); // run once
   </script>
 </body>
 </html>
